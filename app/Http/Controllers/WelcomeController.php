@@ -19,7 +19,7 @@ class WelcomeController extends Controller
         $churches = Church::select(['id', 'name'])
             ->when($request->lat and $request->long, function($query) use ($request) {
                 $query->addSelect(DB::raw("ST_DISTANCE_sphere(
-                    POINT('$request->lat', '$request->long'). point(latitude, longitude)
+                    POINT('$request->lat', '$request->long'), point(latitude, longitude)
                         as distance"))->orderBy('distance');
             })
             ->when($request->churchName, function ($query, $churchName) {
