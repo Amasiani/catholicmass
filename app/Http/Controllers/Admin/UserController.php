@@ -1,0 +1,118 @@
+<?php
+
+namespace App\Http\Controllers\Admin;
+
+use App\Actions\Fortify\CreateNewUser;
+use App\Http\Controllers\Controller;
+use App\Models\Church;
+use App\Models\Role;
+use App\Models\User;
+use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Password;
+
+class UserController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
+    {
+        //list users
+        return view('admin.users.index', ['users' => User::paginate(10)]);
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
+    {
+        //create app user
+        return view('admin.users.create', 
+        ['churches' => Church::all(),
+         'roles'=>Role::all()
+        ]);
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
+    {
+        //save user
+        $appuser = new CreateNewUser();
+
+        $user = $appuser->create($request->except(['_token', 'church', 'role']));
+        $user->churches()->sync($request->churches);
+        $user->roles()->sync($request->roles);
+
+        Password::sendResetLink($request->only('email'));
+        return redirect()->route('admin.users.index');
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //detail
+        return view('admin.users.show', 
+        ['user' => User::find($id)]);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //edit
+        return view('admin.users.edit', 
+        ['user' => User::find($id),
+         'churches' => Church::all()]);
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //update user
+        $user = User::find($id);
+        $user->update($request->except(['_token', 'church', 'role']));
+        $user->churches()->sync([$request->churches, $request->roles]);
+
+        $request->session()->flash('success', 'User updated');
+        return redirect()->route('admin.users.index');
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //delete user
+        User::destroy($id);
+
+        return redirect()->route('admin.users.index')
+        ->with('success', 'User deleted');
+    }
+}
