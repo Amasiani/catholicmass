@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Church;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class HomeController extends Controller
 {
@@ -12,9 +14,26 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        //
+        //API response
+        if(!$request->ajax()){
+            return view('welcome');
+        }
+        $churches = Church::select(['id', 'name'])
+            ->when($request->lat and $request->long, function($query) use ($request) 
+            {
+                $query->addSelect(DB::raw("ST_DISTANCE_sphere(
+                    POINT($request->lat, $request->long), POINT(latitufe, longtitude)
+                        as distance)"))->orderBy('distance');
+            })->when($request->churchName, function($query, $churchName) {
+                $query->where('churches.name', 'like', "%{$churchName}%");
+            })->take(10)->get();
+
+            return response()->json(
+                [
+                'churches' => $churches
+                ]);
     }
 
     /**
