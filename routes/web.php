@@ -30,6 +30,9 @@ Route::get('/', function () {
 Route::get('/home', function (){
     return view('home');
 });
+Route::get('/starter', function(){
+    return view('starter');
+});
 
 Route::get('/page1', [WelcomeController::class], 'index');
 Route::get('/page2', [HomeController::class], 'index');

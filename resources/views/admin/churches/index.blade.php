@@ -1,8 +1,7 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
-        <div class="row">
-            <div class="col">
+        <div class="col-md-12 offset-md-0">        
             <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                 <a href="{{ url('/') }}"><button class="btn btn-primary me-md-2 mb-2" type="button">Home</button></a>
                 <button class="btn btn-primary mb-2" type="button">Button</button>
@@ -60,7 +59,5 @@
                 </tbody>
             </table>
             {{ $churches->links() }}
-            </div>
-            </div>
-        </div>
-@endsection('content')
+            </div>        
+@endsection
