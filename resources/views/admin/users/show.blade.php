@@ -1,14 +1,14 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
-<section style="padding-top:60px;">
+<section style="padding-top:20px;">
         <div class="row">
-            <div class="col-md-10 offset-md-2">
+            <div class="col-md-10">
                 
                 <div class="card" style="width: 45rem;">
                     <div class="card-header">                        
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <a href="{{ route('admin.users.edit', $user->id) }}"><button class="btn btn-primary me-md-2" type="button">Edit</button></a>
+                            <a href="{{ route('admin.users.edit', $user->id) }}"><button class="btn btn-primary me-md-2 mr-2" type="button">Edit</button></a>
                             <button class="btn btn-danger"  type="button"
                                 onclick="event.preventDefault();
                                 document.getElementById('delete-user-form{{ $user->id }}').submit()">
@@ -19,7 +19,7 @@
                                 @method('DELETE')
                             </form>
                         </div>
-                        <strong>{{ $user->name }} </strong>
+                        <strong>{{ $user->name }} details </strong>
                     </div>
                     <ul class="list-group list-group-flush">
                         <li class="list-group-item"><strong>Email:</strong> {{ $user->email }}</li>

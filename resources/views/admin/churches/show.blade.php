@@ -1,15 +1,15 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
-<section style="padding-top:60px;">
+<section style="padding-top:20px;">
         <div class="row">
-            <div class="col-md-10 offset-md-2">
+            <div class="col-md-10">
                 
                 <div class="card" style="width: 45rem;">
                     <div class="card-header">                        
                         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
                             <a href="{{ route('admin.churches.edit', $church->id) }}"><button class="btn btn-primary me-md-2" type="button">Edit</button></a>
-                            <a href="{{ route('admin.announcements.create', $church->id) }}"><button type="button" class="btn btn-info">Create Announcement</button></a>
+                            <a href="{{ route('admin.announcements.create', $church->id) }}"><button type="button" class="btn btn-info mx-2">Add Announcement</button></a>
                             <button class="btn btn-danger"  type="button"
                                 onclick="event.preventDefault();
                                 document.getElementById('delete-church-form{{ $church->id }}').submit()">

@@ -1,91 +1,89 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
-    <section style="padding-top:60px;">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <a href="{{ route('admin.users.index') }}">
-                        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                            <button type="button" class="btn btn-primary me-mb-2 mb-3">Back</button>
-                        </div>
-                    </a>
-                    <div class="card">
-                        <div class="card-header">
-                            Add a new user
-                        </div>
-                            <div class="card-body">
-                                @if(Session::has('success'))
-                                    <div class="alert-session" role="alert">
-                                        {{Session::get('success')}}
-                                    </div>
-                                @endif
-                                <form method="POST" action="{{route('admin.users.store')}}" enctype="multipart/form-data">
-                                    @csrf
-                                    <div class="mb-3">
-                                        <label for="namer">Name:</label>
-                                        <input type="text" name="name" class="form-control @error('name') is-invalid @enderror"  />
-                                        @error('name')
-                                            <span role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="email">Email:</label>
-                                        <input type="text" name="email" class="form-control @error('email') is-invalid @enderror" />
-                                    @error('email')
-                                        <span role="alert">
-                                            <strong>{{ $message }}</strong>
-                                        </span>
-                                    @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="password">Password:</label>
-                                        <input type="password" name="password" class="form-control @error('password') is-invalid @enderror" />
-                                        @error('password')
-                                            <span role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="password_confirmation">Confirm password:</label>
-                                        <input type="password" name="password_confirmation" class="form-control @error('password_confirmation') is-invalid @enderror" />
-                                        @error('password_confirmation')
-                                            <span role="alert">
-                                                <strong>{{ $message }}</strong>
-                                            </span>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">                                                                        
-                                    <select name="churches[]" id="church" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-                                        <option value="">--Select church--</option>
-                                    @foreach($churches as $church)                                        
-                                        <option value="{{ $church->id }}" @if(old('church') == $church->id) selected @endif>{{ $church->name }}</option>                                   
-                                    @endforeach
-                                    </select>                                                                         
-                                    </div>
-                                    
-                                        <div class="mb-3">                                                                        
-                                            <div class="form-check-input"> 
-                                            @foreach($roles as $role)                                          
-                                                <input value="{{ $role->id }}" name="roles[]"
-                                                    type="checkbox" value="{{ $role->id }}" id="{{ $role->name }}">
-                                                                                                                               
-                                                <label value="form-check-label" for="{{ $role->name }}">
-                                                    {{ $role->name }}
-                                                </label> 
-                                                @endforeach                                           
-                                            </div>                            
-                                        </div>
-                                                                                                             
-                            </div>
-                                    <button type="submit" class="btn btn-primary">Create</button>
-                                </form>
+<section style="padding-top:10px;">
+            <div class="col-md-11">
+                <a href="{{ route('admin.users.index') }}">
+                    <div class="d-grid gap-2 d-md-flex justify-content-md-end mb-3">
+                        <button type="button" class="btn btn-primary me-mb-2">Back</button>
                     </div>
+                </a>
+                <div class="card mb-3" style="max-width: 900px;">
+                    <div class="card-header">
+                        Add a new user
+                    </div>
+                    <div class="card-body">
+                    @if(Session::has('success'))
+                    <div class="alert-session" role="alert">
+                        {{Session::get('success')}}
+                    </div>
+                    @endif
+                    <form method="post" action="{{ route('admin.users.store') }}" class="row g-3" enctype="multipart/form-data">
+                        @csrf
+                        <div class="col-md-6">
+                            <label for="name" class="form-label">Name</label>
+                            <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="User name" required autocomplete="TRUE" name="name" autofocus id="name">
+                            @error('name')
+                            <span role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" placeholder="Email" required autocomplete="TRUE" name="email" autofocus id="email">
+                            @error('email')
+                            <span role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label for="password" class="form-label">Password</label>
+                            <input type="password" class="form-control @error('password') is-invalid @enderror"  required autocomplete="TRUE" name="password" autofocus id="password" placeholder="Password">
+                            @error('password')
+                            <span role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label for="password_confirmation" class="form-label">Confirm password</label>
+                            <input type="password" class="form-control @error('password_confirmation') is-invalid @enderror" placeholder="Confirm password" required autocomplete="TRUE" name="password_confirmation" autofocus id="password_confirmation" placeholder="Confirm password">
+                            @error('password_confirmation')
+                            <span role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="col-md-6">
+                            <label for="church" class="form-label"></label>
+                            <select name="churches[]" class="form-select form-select-lg">
+                            
+                                <option selected>Choose church...</option>
+                            @foreach($churches as $church) 
+                                <option value="{{ $church->id }}" id="{{ $church->id }}" @if(old('church') == $church->id) selected @endif>{{ $church->name }}</option>
+                            @endforeach    
+                            </select>
+                        </div>
+                        <div class="col-md-6">
+                        @foreach($roles as $role)
+                            <div class="form-check form-check-inline">                            
+                                <input class="form-check-input mt-4" value="{{ $role->id }}" name="roles[]" type="checkbox" id="{{ $role->name }}">
+                                <label class="form-check-label mt-4" for="{{ $role->name }}">
+                            {{ $role->name }}
+                                </label>
+                            @endforeach
+                            </div>
+                        </div>
+                            <div class="col-12">
+                                <div class="d-grid gap-2 d-md-flex justify-content-md-end mt-4">
+                                <button type="submit" class="btn btn-primary">Create</button>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
-    </section>
+</section>
 @endsection('content')

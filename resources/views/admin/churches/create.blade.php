@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
 <section style="padding-top:60px;">

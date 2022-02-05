@@ -46,13 +46,24 @@ class UserController extends Controller
     public function store(Request $request)
     {
         //save user
+
+        //dd($request);
         $appuser = new CreateNewUser();
 
-        $user = $appuser->create($request->except(['_token', 'church', 'role']));
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users,email',
+            'church' => 'required',
+            'role' => 'required'
+        ]);
+
+       $user = $appuser->create($request->except(['_token', 'church', 'role']));
         $user->churches()->sync($request->churches);
         $user->roles()->sync($request->roles);
 
         Password::sendResetLink($request->only('email'));
+
+        $request->session()->flash('success', 'User created');
         return redirect()->route('admin.users.index');
     }
 
@@ -80,7 +91,8 @@ class UserController extends Controller
         //edit
         return view('admin.users.edit', 
         ['user' => User::find($id),
-         'churches' => Church::all()]);
+         'churches' => Church::all(),
+         'roles' => Role::all()]);
     }
 
     /**
@@ -95,7 +107,8 @@ class UserController extends Controller
         //update user
         $user = User::find($id);
         $user->update($request->except(['_token', 'church', 'role']));
-        $user->churches()->sync([$request->churches, $request->roles]);
+        $user->churches()->sync($request->churches);
+        $user->roles()->sync($request->roles);
 
         $request->session()->flash('success', 'User updated');
         return redirect()->route('admin.users.index');

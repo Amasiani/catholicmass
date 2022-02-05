@@ -11,6 +11,7 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\Adoration;
+use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -25,20 +26,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('home');
+    return view('welcome');
 });
 Route::get('/home', function (){
     return view('home');
 });
-Route::get('/starter', function(){
+/*Route::get('/starter', function(){
     return view('starter');
-});
+});*/
 
 Route::get('/page1', [WelcomeController::class], 'index');
-Route::get('/page2', [HomeController::class], 'index');
-Route::getRoutes('/page3', [ContactFormController::class, 'index']);
+Route::get('/home', [HomeController::class, 'redirect']);
+Route::get('/contact-us', [ContactFormController::class, 'Contactindex'])->name('contact');
+Route::post('/send-contact', [ContactFormController::class, 'sendContactMail'])->name('contact.send');
 
-Route::prefix('admin')->name('admin.')->group(function() {
+Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function() {
     Route::resources([
         'announcements'=> AnnouncementController::class,
         'adorations' => AdorationController::class,

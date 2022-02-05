@@ -48,8 +48,18 @@
                                             <option value="{{ $church->id }}" id="{{ $church->name }}" @isset($user) @if(in_array($church->id, $user->churches->pluck('id')->toArray())) selected @endif @endisset>{{ $church->name }}</option>                                   
                                         @endforeach
                                         </select>                                                                         
-                                        </div>                                                                       
-                                    </div>
+                                    </div> 
+                                    <div class="col-6">
+                                        <div class="form-check-input px-4 mt-3">                                        
+                                        @foreach($roles as $role)
+                                            <input value="{{ $role->id }}" name="roles[]" type="checkbox" id="{{ $role->name }}" @isset($user) @if(in_array($role->id, $user->roles->pluck('id')->toArray())) checked @endif @endisset>
+                                            <label class="form-check-label" for="{{ $role->name }}">
+                                                {{ $role->name }}
+                                            </label>
+                                        @endforeach
+                                        </div>
+                                    </div>                                                                      
+                                </div>
                                     <button type="submit" class="btn btn-primary">Update</button>
                                 </form>
                             </div>
