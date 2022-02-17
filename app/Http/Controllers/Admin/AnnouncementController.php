@@ -55,7 +55,7 @@ class AnnouncementController extends Controller
         $announcement->save();
 
         $request->session()->flash('success', 'Announcement created');
-        return redirect()->route('admin.announcements.index');
+        return redirect()->back();
     }
 
     /**
@@ -97,7 +97,7 @@ class AnnouncementController extends Controller
         $announcement->update($request->only(['title', 'description']));
 
         $request->session()->flash('success', 'Announcement updated');
-        return redirect()->route('admin.announcements.index');
+        return redirect()->back();
     }
 
     /**

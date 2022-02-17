@@ -1,33 +1,30 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
-<section style="padding-top:60px;">
-<title>Announcement</title>
+<section style="padding-top:5px;">
 <div class="container">
     <div class="row">
-        <div class="col-md-6 offset-md-3">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{{ route('admin.announcements.edit', $announcement->id) }}"><button type="button" class="btn btn-primary me-mb-2 mb-3">Edit</button></a>
-                <button class="btn btn-danger me-mb-2 mb-3"  type="button"
-                    onclick="event.preventDefault();
-                    document.getElementById('delete-announcement-form{{ $announcement->id }}').submit()">
-                        Delete
-                </button>
-                <form id="delete-announcement-form{{ $announcement->id }}" action="{{ route('admin.announcements.destroy', $announcement->id) }}" method="POST" style="display: none;">
-                    @csrf
-                    @method('DELETE')
-                </form>
-            </div>
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    {{ $announcement->title}}
+                    <strong>{{ $announcement->title}}</strong>
+                    <button class="btn btn-danger me-mb-2 ml-2 float-end"  type="button"
+                        onclick="event.preventDefault();
+                        document.getElementById('delete-announcement-form{{ $announcement->id }}').submit()">
+                            Delete
+                    </button>
+                    <a href="{{ route('admin.announcements.edit', $announcement->id) }}" role="button" class="btn btn-primary float-end">Edit</a>
+                    <form id="delete-announcement-form{{ $announcement->id }}" action="{{ route('admin.announcements.destroy', $announcement->id) }}" method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
                 </div>
                 <div class="card-body">
                     {{ $announcement->description }}
                 </div>
             </div>
-            <div class="card-body text-end">
-                <a href="{{ route('admin.announcements.index') }}" class="card-link">Back</a>
+            <div class="card-body">
+                <a href="{{ url('/home') }}" class="card-link float-end">Back</a>
             </div>
         </div>
             

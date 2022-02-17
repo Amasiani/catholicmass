@@ -48,22 +48,21 @@ class UserController extends Controller
         //save user
 
         //dd($request);
+        
         $appuser = new CreateNewUser();
 
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users,email',
-            'church' => 'required',
-            'role' => 'required'
         ]);
 
-       $user = $appuser->create($request->except(['_token', 'church', 'role']));
-        $user->churches()->sync($request->churches);
-        $user->roles()->sync($request->roles);
+       $user = $appuser->create($request->except(['_token', 'church', 'role']));   
+       $user->churches()->sync($request->churches);
+       $user->roles()->sync($request->roles);
 
-        Password::sendResetLink($request->only('email'));
+       Password::sendResetLink($request->only('email'));
+       $request->session()->flash('success', 'User created');
 
-        $request->session()->flash('success', 'User created');
         return redirect()->route('admin.users.index');
     }
 
@@ -106,6 +105,7 @@ class UserController extends Controller
     {
         //update user
         $user = User::find($id);
+
         $user->update($request->except(['_token', 'church', 'role']));
         $user->churches()->sync($request->churches);
         $user->roles()->sync($request->roles);

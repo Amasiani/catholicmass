@@ -4,13 +4,10 @@
 <div class="container">
         <div class="row">
             <div class="col-md-12 offset-md-0">
-            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                <a href="{{ route('admin.users.create') }}"><button class="btn btn-primary me-md-2 mb-2 mr-2" type="button">Add User</button></a>
-                <a href="{{ url('/home') }}"><button class="btn btn-primary mb-2" type="button">Home</button></a>
-            </div>
                 <div class="card">
                     <div class="card-header" style="text-align:center;">
-                        List of Users
+                       <strong>List of Users</strong>
+                        <a href="{{ route('admin.users.create') }}" role="button" class="btn btn-primary float-end">Add user</a>
                     </div>
                     <table class="table">
                         <thead>
@@ -28,9 +25,19 @@
                                 <th scope="row">{{ $user->id}}</th>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
-                                @foreach($user->churches as $church)
-                                <td>{{ $church->name }}</td>
-                                @endforeach
+                                <td><div class="btn btn-group">
+                                        <button type="button" class="btn dropdown-toggle btn-lg" data-bs-toggle="dropdown" aria-expanded="true">
+                                        list of churches    
+                                        </button>
+                                        @foreach($user->churches as $church)   
+                                        <div class="dropdown-menu">                                           
+                                            <ul>
+                                               <a href="{{ route('admin.churches.show', $church->id) }}" role="button" class="btn"><li>{{ $church->name }}</li></a> 
+                                            </ul>
+                                        </div>                                      
+                                        @endforeach
+                                    </div>
+                                </td>
                                 <td>
                                     <a href="{{ route('admin.users.show', $user->id) }}"><button type="button" class="btn btn-info">Detail</button></a>
                                 </td>

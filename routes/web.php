@@ -1,4 +1,6 @@
 <?php
+//namespace App\Http\Controllers; 
+
 
 use App\Http\Controllers\Admin\AdorationController;
 use App\Http\Controllers\Admin\AnnouncementController;
@@ -28,14 +30,14 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
-Route::get('/home', function (){
-    return view('home');
+/*Route::get('/home', function (){
+    return view('home1');
 });
 /*Route::get('/starter', function(){
     return view('starter');
 });*/
 
-Route::get('/page1', [WelcomeController::class], 'index');
+Route::get('/admin', [WelcomeController::class, 'admin'])->name('admin');
 Route::get('/home', [HomeController::class, 'redirect']);
 Route::get('/contact-us', [ContactFormController::class, 'Contactindex'])->name('contact');
 Route::post('/send-contact', [ContactFormController::class, 'sendContactMail'])->name('contact.send');
@@ -47,8 +49,8 @@ Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(
         'churches' => ChurchController::class,
         'notifications' => NotificationController::class,
         'roles' => RoleController::class,
-        'socities' => SocietyController::class,
-        'users' => UserController::class
+        'societies' => SocietyController::class,
+        'users' => UserController::class,
     ]);
 });
 

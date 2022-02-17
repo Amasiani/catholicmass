@@ -169,13 +169,28 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Sidebar -->
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
-      <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+      <div class="user-panel mt-2 pb-2 mb-3 d-flex">
         <div class="image">
           <img src="/assets/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          @auth
+          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          @endauth
+          @if(Route::has('login'))
+            <a href="{{ route('logout') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();" ><p>Logout</p></a>
+            <form id='logout-form' action="{{ route('logout') }}" method=POST style="display:none" >
+              @csrf
+            </form>
+          @else
+            <a href="{{ route('login') }}" class="text-sm text-gray-700 dark:text-gray-500 underline"><p>Log in</p></a>
+              @if (Route::has('register'))
+            <a href="{{ route('register') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline"><p>Register</p></a>
+              @endif
+          @endif
         </div>
+      </div>
       </div>
 
       <!-- SidebarSearch Form -->
@@ -189,10 +204,41 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div>
         </div>
       </div>
-
+      <!--/* SidebarSearch Form -->
+      <!--Admin dropdown-menu items -->
+      <div class="btn btn-group mt-1">
+        <button type="button" class="btn btn-primary dropdown-toggle btn-lg" data-bs-toggle="dropdown" aria-expanded="true">
+          Admin menu
+        </button>
+        @auth
+          <ul class="dropdown-menu">
+          @if(Auth::user()->usertype == 1)        
+            <li><a class="dropdown-item" href="{{ route('admin.users.index') }}">Users</a></li>
+            <li><a class="dropdown-item" href="{{ route('admin.churches.index') }}">Churches</a></li>
+            <!--<li><a class="dropdown-item" href="{{ route('admin.roles.index') }}">Roles</a></li>-->
+            <li><hr class="dropdown-divider"></li>          
+            <li><a class="dropdown-item" href="{{ route('admin.adorations.index') }}">Adorations</a></li>
+            <li><a class="dropdown-item" href="{{ route('admin.announcements.index') }}">Announcements</a></li>
+            <li><a class="dropdown-item" href="{{ route('admin.notifications.index') }}">Notifications</a></li>
+            <li><a class="dropdown-item" href="{{ route('admin.societies.index') }}">Societies</a></li>
+          @elseif($user = Auth::user())
+            @foreach($user->churches as $church)
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="{{ route('admin.churches.show', $church->id) }}">{{ $church->name }}</a></li>
+            @endforeach
+            @foreach($user->churches as $church)
+              @foreach($church->announcements as $announcement)
+              <li><a class="dropdown-item" href="{{ route('admin.announcements.show', $announcement->id) }}">{{ $announcement->title }}</a></li>
+              @endforeach
+            @endforeach
+          @endif
+        </ul>        
+        @endauth
+      </div>
+      <!-- /* Admin dropdow-menu items -->
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
           <li class="nav-item menu-open">
@@ -245,7 +291,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
               <li class="breadcrumb-item active">Starter Page</li>
             </ol>
           </div><!-- /.col -->
@@ -273,8 +319,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <!-- Control sidebar content goes here -->
     <div class="p-3">
       <h5>Title</h5>
-      <p>Sidebar content</p>
-      <p>Sidebar content2</p>
+      <p>Side-bar item</p>
     </div>
   </aside>
   <!-- /.control-sidebar -->

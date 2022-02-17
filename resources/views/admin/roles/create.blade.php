@@ -1,41 +1,26 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
-<section style="padding-top:60px;">
-<title>Role</title>
+<section style="padding-top:5px;">
 <div class="container">
-    <div class="row">
-        <div class="col-md-6 offset-md-3">
-        <a href="{{ route('admin.roles.index') }}">
-                    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-                        <button type="button" class="btn btn-primary me-mb-2 mb-3">Back</button>
-                    </div>
-                </a>
-        <div class="card">
-        <div class="card-header">
-            Add Role
-        </div>
+    <div class="col">
+        <div class="card" style="max-width: 900px;">
+            <div class="card-header">
+                <strong> Add Role</strong>
+                <a href="{{ route('admin.roles.index') }}" role="button" class="btn float-end">Back</a>
+            </div>
             <div class="card-body">
-            @if(Session::has('message_sent'))
+                @if(Session::has('message_sent'))
                 <div class="alert-session" role="alert">
                     {{Session::get('message_sent')}}
                 </div>
-            @endif
+                @endif
                 <form method="POST" action="{{route('admin.roles.store')}}" enctype="multipart/form-data">
                     @csrf
-                    <div class="md-3 py-2">
-                        <label for="name" class="form-label">Name</label>
-                        <input type="text" class="form-control @error('name') is-invalid @enderror" placeholder="Role name" required autocomplete="TRUE" name="name" autofocus >
-                        @error('title')
-                            <span role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                        @enderror
-                    </div>                                        
+                    @include('admin.roles.partials.form')                                     
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>
-        </div>
         </div>
     </div>
 </div>

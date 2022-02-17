@@ -1,4 +1,5 @@
 <?php
+//namespace App\Http\Controllers;
 
 use App\Http\Controllers\API\ChurchController;
 use Illuminate\Http\Request;

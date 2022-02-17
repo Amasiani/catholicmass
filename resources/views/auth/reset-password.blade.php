@@ -15,8 +15,8 @@
                     @endif
                     @error('email')
                     <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
+                        <strong>{{ $message }}</strong>
+                    </span>
                     @enderror
                     <div class="card-body">
                         <div class="brand-wrapper">
@@ -59,4 +59,5 @@
                 </div>
             </div>
         </div>
+    </div>  `
 @endsection

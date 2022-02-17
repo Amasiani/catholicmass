@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Society;
 use Illuminate\Http\Request;
 
 class SocietyController extends Controller
@@ -14,7 +15,8 @@ class SocietyController extends Controller
      */
     public function index()
     {
-        //
+        //list societies
+        return view('admin.societies.index', ['societies' => Society::paginate(10)]);
     }
 
     /**
@@ -24,7 +26,8 @@ class SocietyController extends Controller
      */
     public function create()
     {
-        //
+        //create society
+        return view('admin.societies.create');
     }
 
     /**
@@ -36,6 +39,15 @@ class SocietyController extends Controller
     public function store(Request $request)
     {
         //
+        //dd($request);
+        $request->validate([
+            'name' => 'required|string',
+            'program' => 'required|string|max:350',            
+        ]);
+        Society::create($request->except('_token'));
+
+        $request->session()->flash('success', 'Society created');
+        return redirect()->route('admin.societies.index');
     }
 
     /**
@@ -46,7 +58,8 @@ class SocietyController extends Controller
      */
     public function show($id)
     {
-        //
+        //detail of society
+        return view('admin.societies.show', ['society' => Society::find($id)]);
     }
 
     /**
@@ -57,7 +70,8 @@ class SocietyController extends Controller
      */
     public function edit($id)
     {
-        //
+        //edit society
+        return view('admin.societies.edit', ['society' => Society::find($id)]);
     }
 
     /**
@@ -69,7 +83,13 @@ class SocietyController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //update society
+        $society = Society::find($id);
+        $society->update($request->except('_token'));
+
+        $request->session()->flash('success', 'Society updated');
+        return redirect()->route('admin.societies.index');
+
     }
 
     /**
@@ -80,6 +100,10 @@ class SocietyController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //delete society
+        Society::destroy($id);
+
+        return redirect()->route('admin.societies.index')
+            ->with('success', 'society deleted');
     }
 }
