@@ -16,11 +16,16 @@
         <strong>{{ message }}</strong>
     </span>
     @enderror
+    </div>
+  <div class="mb-3">
+  <label for="image" class="form-label">Choice image...</label>
+  <input class="form-control" name="image" type="file" id="image">
+</div>
+  @isset($edit)
   </div>
   <div class="mb-3">
   <label for="image" class="form-label">Choice image...</label>
   <input class="form-control" name="image" type="file" id="image">
-  @isset($edit)
   <img src="{{ asset('images/' . $notification->img) }}" width="50px" heigth="50px" alt="notification_image">
-  @endisset
 </div>
+@endisset

@@ -12,7 +12,7 @@
       <form method="POST" action="{{ route('admin.notifications.update', $notification->id) }}" class="row g-3" enctype="multipart/form-data">
         @csrf
         @method('PATCH')
-        @include('admin.notifications.partials.form', ['edit' =>true])
+        @include('admin.notifications.partials.form', ['edit'])
         <button type="submit" class="btn btn-primary float-end">Update</button>
       </form>
       </div>
