@@ -1,10 +1,18 @@
 <?php
 
+/**
+ * Namespace for the controller class
+ */
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
 use App\Models\Church;
 use Illuminate\Http\Request;
+
+/**
+ * Church model funtion file 
+ * performance the busines logic
+ */ 
 
 class ChurchController extends Controller
 {
@@ -57,11 +65,13 @@ class ChurchController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
-        //
+        //delete church
+        Church::destroy($id);
+        return redirect()->back();
     }
 }

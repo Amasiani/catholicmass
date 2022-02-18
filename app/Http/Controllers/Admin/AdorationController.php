@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use App\Models\Adoration;
 use Illuminate\Http\Request;
 
-use function PHPUnit\Framework\returnSelf;
 
 class AdorationController extends Controller
 {
@@ -29,7 +28,7 @@ class AdorationController extends Controller
     public function create()
     {
         //create a new adoration object
-        return view('admin.adorations.create');
+        return view('admin.adoration.create');
     }
 
     /**
