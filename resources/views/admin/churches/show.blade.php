@@ -41,7 +41,10 @@
                             </div>
                         </div>
                         @endforeach
-                        <li class="list-group-item"><strong>Website address:</strong>  {{ $church->website }}</li>
+                        <li class="list-group-item"><strong>Website address:</strong><a href="{{ $church->website }}" target="_blank" style="text-decoration: none;">      {{ $church->website  }}</a></li>
+                        @foreach( $church->users as $user)
+                        <li class="list-group-item"><strong>Church editor:  </strong><a href="{{ route('admin.users.show', $user->id) }}" style="text-decoration:  none;"><strong>   {{ $user->name  }}</strong></a></li>
+                        @endforeach
                     </ul>
                     <div class="card-body text-end">
                         <a href="{{ url('/home') }}" class="card-link">Back</a>

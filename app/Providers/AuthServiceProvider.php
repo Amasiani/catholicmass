@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Models\Notification;
+use App\Policies\NotificationPolicy;
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
 
@@ -14,6 +16,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        Notification::class => NotificationPolicy::class,
     ];
 
     /**
@@ -26,5 +29,8 @@ class AuthServiceProvider extends ServiceProvider
         $this->registerPolicies();
 
         //
+        Gate::define('is-admin', function($user){
+            return $user->hasAnyRole('admin');
+        });
     }
 }

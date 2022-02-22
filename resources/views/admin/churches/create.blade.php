@@ -10,14 +10,14 @@
                     <a href="{{ url('/home') }}" role="button" class="btn me-mb-2 mb-3 float-end">Back</a>
                 </div>
                 <div class="card-body">
-                        <!--@if(Session::has('message_sent'))
+                        @if(Session::has('message_sent'))
                         <div class="alert-session" role="alert">
                             {{Session::get('message_sent')}}
                         </div>
-                        @endif-->
+                        @endif
                         <form method="POST" action="{{route('admin.churches.store')}}" class="row g-3">
                             @csrf
-                            @include('admin.churches.partials.forms')
+                            @include('admin.churches.partials.forms', ['create' => true])
                             <button type="submit" class="btn btn-primary">Submit</button>
                         </form>
                 </div>

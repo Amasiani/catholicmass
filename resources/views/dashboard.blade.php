@@ -5,7 +5,7 @@
 <div class="container-fluid">
 <h1>Welcome to the editor Dashboard</h1>
 <a href="{{ route('admin.churches.create') }}" role="button" class="btn btn-primary mb-2 float-end">Create church</a>
-        <table class="table">
+        <table class="table table-striped table-hover">
             <thead>
             <tr>
                 <th scope="col">#</th>
@@ -31,17 +31,16 @@
                             <td><a href="{{ route('admin.churches.show', $church->id) }}" role="button" class="btn btn-info">Show</a></td>
                         </tr>
                     @endforeach
-                    </tbody>
-        </table>
-                    @else
+            </tbody>                   
+        </table>     
+                    @elseif($user != Auth::user())
                         <h1><strong>You have no Church in your record, please create a 
                             <a href="{{ route('admin.churches.create') }}">church</a> and link it to your account.
                             </strong>
                         </h1>                  
                     @endelse           
                 @endif
-            @endauth
-       
+            @endauth      
     </div>
 </section>
 @endsection

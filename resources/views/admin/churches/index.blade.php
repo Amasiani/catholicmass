@@ -10,7 +10,7 @@
         <div class="clearfix">
         <div class="table-responsive"> 
         <div class="card-body">     
-            <table class="table">            
+            <table class="table table-striped table-hover">            
                 <thead>                    
                     <tr>
                         <th scope="col">Name</th>
@@ -20,7 +20,6 @@
                         <th scope="col">Activities</th>
                         <th scope="col">Announcement</th>
                         <th scope="col">Website</th>
-                        <th scope="col" colspan="1">Editor</th>
                         <th scope="col">Action</th>
                     </tr>
                 </thead>
@@ -43,19 +42,7 @@
                                 </ul>
                             </div>
                         </td>            
-                        <td>{{ Str::limit($church->website, 10) }}</td>                            
-                        <td><div class="btn btn-group">
-                                <button type="button" class="btn dropdown-toggle btn-lg" data-bs-toggle="dropdown" aria-expanded="true">
-                                    list of users    
-                                </button>
-                                @foreach($church->users as $user)  
-                                <div class="dropdown-menu">                                           
-                                    <ul>
-                                        <a href="{{ route('admin.churches.show', $church->id) }}" role="button" class="btn"><li>{{ Str::limit($user->name, 10) }}</li></a> 
-                                    </ul>
-                                </div>                                      
-                                @endforeach
-                        </td></div>                       
+                        <td><a href="{{ $church->website }}" target="_blank" style="text-decoration: none;">{{ Str::limit($church->website, 10) }}</a></td>                   
                         <div class="d-grid gap-2 d-md-block">
                         <td>
                             <a href="{{ route('admin.churches.show', $church->id) }}"><button type="button" class="btn btn-info">Detail</button></a>                           
@@ -66,9 +53,9 @@
                 </tbody>
             </table>
             </div>
+            {{ $churches->links() }}
         </div>
         </div>            
-            {{ $churches->links() }}
     </div>
 </div>        
 @endsection

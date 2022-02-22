@@ -26,5 +26,6 @@ class AppServiceProvider extends ServiceProvider
     {
         //booststrap paginator method library
         Paginator::useBootstrap();
+
     }
 }

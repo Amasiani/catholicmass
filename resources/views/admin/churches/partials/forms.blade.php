@@ -49,7 +49,7 @@
 </div>
 <div class="col-md-6">
     <label for="website" class="form-label">Church Website</label>
-    <input type="website" value="{{ old('website') }} @isset($church) {{ $church->website }} @endisset" class="form-control @error('website') is-invalid @enderror" required autocomplete="website" autofocus name="website">
+    <input type="website" value="{{ old('website') }} @isset($church) {{ $church->website }} @endisset" class="form-control @error('website') is-invalid @enderror" required autocomplete="website" name="website" placeholder="https://xyz" autofocus >
     @error('website')
         <span  role="alert">
             <strong>{{ $message }}</strong>

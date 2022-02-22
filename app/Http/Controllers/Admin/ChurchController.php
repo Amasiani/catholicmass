@@ -18,11 +18,17 @@ class ChurchController extends Controller
      */
     public function index(Announcement $announcement)
     {
-        //list churches        
-        return view('admin.churches.index', 
-        ['churches' => Church::paginate(10),
-        'announcements' => Announcement::where('church_id', $announcement->id)->get()
-        ]);
+        //list church
+        $user = Auth::user();
+        if($user->usertype == 0)
+        {                
+            return view('admin.churches.index', 
+            ['churches' => User::find($user->id)->churches()->orderBy('name')->paginate(5),
+             'announcements' => Announcement::where('church_id', $announcement->id)->get()]);
+        } else {
+            return view('admin.churches.index', ['churches' => Church::paginate(10)->fragment('churches')]);
+        }
+        
     }
 
     /**
@@ -33,7 +39,7 @@ class ChurchController extends Controller
     public function create()
     {
         //create church
-        return view('admin.churches.create', ['users' => User::all()]);
+        return view('admin.churches.create', ['users' => User::chunk(100)]);
     }
 
     /**
@@ -73,7 +79,7 @@ class ChurchController extends Controller
         }
         
         $request->session()->flash('Success', 'Church created');
-        return redirect()->back();
+        return redirect()->route('admin.churches.index');
     }
 
     /**

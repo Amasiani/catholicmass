@@ -69,12 +69,11 @@
         <div class="container">
           <div class="row align-items-center min-vh-75 min-vh-md-100">
             <div class="col-md-7 col-lg-6 py-6 text-sm-start text-center">
-              <h1 class="mt-6 mb-sm-4 display-2 fw-semi-bold lh-sm fs-4 fs-lg-6 fs-xxl-8">Find your job better <br class="d-block d-lg-none d-xl-block" />and faster</h1>
-              <p class="mb-4 fs-1">Find your best job better and faster with Jobest</p>
+              <p class="mb-4 fs-1">Find Catholic church near you</p>
               <div class="pt-3">
                 <form>
                   <div class="input-group w-xl-75 w-xxl-50 d-flex flex-end-center">
-                    <input class="form-control rounded-pill shadow-lg border-0" id="formGroupExampleInput" type="text" placeholder="Seacrh by skill, company and job" /><img class="input-box-icon me-2" src="assets/img/illustrations/search.png" width="30" alt="" />
+                    <input class="form-control rounded-pill shadow-lg border-0" id="formGroupExampleInput" type="text" placeholder="Search for catholic church near your" /><img class="input-box-icon me-2" src="assets/img/illustrations/search.png" width="30" alt="" />
                   </div>
                 </form>
               </div>
@@ -97,42 +96,6 @@
           </div>
         </div>
       </section>
-
-
-      <!-- ============================================-->
-      <!-- <section> begin ============================-->
-      <section class="py-0">
-
-        <div class="container">
-
-
-          <!-- ============================================-->
-          <!-- <section> begin ============================-->
-          <section class="py-8">
-
-            <div class="container">
-              <div class="row flex-center">
-                <div class="col-md-5 order-md-1 text-center text-md-end"><img class="img-fluid mb-4" src="assets/img/illustrations/jobs.png" width="450" alt="" /></div>
-                <div class="col-md-5 text-center text-md-start">
-                  <h6 class="fw-bold fs-2 fs-lg-3 display-3 lh-sm">Million of jobs, finds <br> the one thats rights for you</h6>
-                  <p class="my-4 pe-xl-8">Get your blood tests delivered at home collect a sample from the news your blood tests.</p>
-                </div>
-              </div>
-            </div>
-            <!-- end of .container-->
-
-          </section>
-          <!-- <section> close ============================-->
-          <!-- ============================================-->
-
-
-        </div>
-        <!-- end of .container-->
-
-      </section>
-      <!-- <section> close ============================-->
-      <!-- ============================================-->
-
 
       <section class="py-5">
         <div class="bg-holder d-none d-sm-block" style="background-image:url(assets/img/illustrations/category-bg.png);background-position:right top;background-size:200px 320px;">
