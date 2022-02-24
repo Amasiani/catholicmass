@@ -20,26 +20,27 @@
             <tbody>
             @auth
                 @if ($user = Auth::user())
-                    @foreach($user->churches as $church)
-                        <tr>
-                            <th scope="row">{{ $church->id }}</th>
-                            <td>{{ $church->name }}</td>
-                            <td>{{ $church->address }}</td>
-                            <td>{{ Str::limit($church->program, 40) }}</td>
-                            <td>{{ $church->latitude }}</td>
-                            <td>{{ $church->longitude }}</td>
-                            <td><a href="{{ route('admin.churches.show', $church->id) }}" role="button" class="btn btn-info">Show</a></td>
-                        </tr>
-                    @endforeach
+                    
+                        @foreach($user->churches as $church)
+                            <tr>
+                                <th scope="row">{{ $church->id }}</th>
+                                <td>{{ $church->name }}</td>
+                                <td>{{ $church->address }}</td>
+                                <td>{{ Str::limit($church->program, 40) }}</td>
+                                <td>{{ $church->latitude }}</td>
+                                <td>{{ $church->longitude }}</td>
+                                <td><a href="{{ route('admin.churches.show', $church->id) }}" role="button" class="btn btn-info">Show</a></td>
+                            </tr>
+                        @endforeach
             </tbody>                   
         </table>     
-                    @elseif($user != Auth::user())
+                    @else
                         <h1><strong>You have no Church in your record, please create a 
                             <a href="{{ route('admin.churches.create') }}">church</a> and link it to your account.
                             </strong>
                         </h1>                  
-                    @endelse           
-                @endif
+                    @endif           
+             
             @endauth      
     </div>
 </section>

@@ -24,7 +24,7 @@ class ChurchController extends Controller
     public function index()
     {
         //list church
-        return Church::all();
+        return response()->json(Church::chunk(20));
     }
 
     /**
@@ -47,7 +47,7 @@ class ChurchController extends Controller
     public function show(Church $church)
     {
         //show
-        return $church;
+        return response()->json($church);
     }
 
     /**

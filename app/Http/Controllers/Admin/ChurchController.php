@@ -39,7 +39,7 @@ class ChurchController extends Controller
     public function create()
     {
         //create church
-        return view('admin.churches.create', ['users' => User::chunk(100)]);
+        return view('admin.churches.create', ['users' => User::all()]);
     }
 
     /**
