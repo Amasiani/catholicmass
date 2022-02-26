@@ -16,12 +16,13 @@ class NotificationController extends Controller
     {
         $this->middleware('auth.isAdmin');
     }
+
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+     public function index()
     {
         //list notification 
         return view('admin.notifications.index', 
