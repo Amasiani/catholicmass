@@ -133,11 +133,12 @@
             <div class="col-xl-10 px-0">
               <div class="carousel slide pt-6" id="carouselExampleDark" data-bs-ride="carousel"> 
                 <div class="carousel-inner">
-                  <div class="carousel-item active" data-bs-interval="10000">
+                @foreach($notifications as $key => $notification)
+                  <div class="carousel-item {{ $key == 0 ? 'active' : '' }}" data-bs-interval="10000">
                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                      <div class="col-md-4 mb-8 mb-md-0">
+                      <div class="col-md-12 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-1.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="150" height="150" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                              <ul class="list-unstyled list-inline">
@@ -172,9 +173,9 @@
                           </div>
                         </div>
                       </div>
-                      <div class="col-md-4 mb-8 mb-md-0">
+                      <!--<div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-2.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -208,10 +209,10 @@
                             <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
                           </div>
                         </div>
-                      </div>
-                      <div class="col-md-4 mb-8 mb-md-0">
+                      </div>-->
+                      <!--<div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-3.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/'. $notification->img) }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -245,14 +246,14 @@
                             <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
                           </div>
                         </div>
-                      </div>
+                      </div>-->
                     </div>
                   </div>                 
-                  <div class="carousel-item " data-bs-interval="2000"> 
-                  <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
+                  <!--<div class="carousel-item " data-bs-interval="2000"> 
+                    <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
                       <div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-1.png" class="rounded-circle" width="134" height="134" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -283,13 +284,13 @@
                                 </li>
                               </ul>
                             </div>
-                            <p class="card-text text-center text-1000 px-4">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi repudiandae incidunt odit blanditiis, unde neque. Id distinctio voluptatem ducimus repellat vel obcaecati deserunt expedita, culpa autem iste accusamus, omnis odit!</p>
+                            <p class="card-text text-center text-1000 px-4">{{Str::limit($notification->description, 50) }}</p>
                           </div>
                         </div>                       
                       </div>
                       <div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-2.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -326,7 +327,7 @@
                       </div>
                       <div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-3.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -362,12 +363,12 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                  <div class="carousel-item">
+                  </div>-->
+                  <!--<div class="carousel-item">
                     <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
                       <div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-1.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -404,7 +405,7 @@
                       </div>
                       <div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-2.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->imgs) }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -441,7 +442,7 @@
                       </div>
                       <div class="col-md-4 mb-8 mb-md-0">
                         <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="assets/img/gallery/user-3.png" alt="" /></div>
+                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
                           <div class="card-body d-flex flex-column flex-center py-6">
                             <div class="my-4">
                               <ul class="list-unstyled list-inline">
@@ -477,7 +478,8 @@
                         </div>
                       </div>
                     </div>
-                  </div>
+                  </div>-->
+                  @endforeach
                 </div>
               </div>             
             </div>
@@ -572,10 +574,10 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-auto mb-2">
-              <p class="mb-0 fs--1 text-white my-2 text-center">&copy; This template is made with&nbsp;
+              <p class="mb-0 fs--1 text-white my-2 text-center">&copy; This webApp is made with&nbsp;
                 <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1F3A63" viewBox="0 0 16 16">
                   <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
-                </svg>&nbsp;by&nbsp;<a class="text-white" href="https://themewagon.com/" target="_blank">ThemeWagon </a>
+                </svg>&nbsp;by&nbsp;<a class="text-white" href="https://eastsunnetwork.com/" target="_blank">Eastsun Network Ltd </a>
               </p>
             </div>
           </div>
@@ -600,5 +602,4 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400&amp;display=swap" rel="stylesheet">
   </body>
-
 </html>
