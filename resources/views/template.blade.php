@@ -17,8 +17,8 @@
     <!--    Favicons-->
     <!-- ===============================================-->
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
-    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x321.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16123.png">
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
@@ -39,10 +39,10 @@
     <!--    Main Content-->
     <!-- ===============================================-->
     <main class="main" id="top">
-      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 backdrop" data-navbar-on-scroll="data-navbar-on-scroll">
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 backdrop" data-navbar-on-scroll="data-navbar-on-scroll" style="background-color: #65c2f5;">
         <div class="container"><a class="navbar-brand d-flex align-items-center fw-bolder fs-2 fst-italic" href="#">
-            <div class="text-info">JO</div>
-            <div class="text-warning">BEST</div>
+            <img src="assets/img/gallery/logo.png" class="rounded-circle" alt="">
+             <div class="col md-6 px-1">Catholic Clock</div>           
           </a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
           <div class="collapse navbar-collapse border-top border-lg-0 mt-4 mt-lg-0" id="navbarSupportedContent">
@@ -58,7 +58,7 @@
         </div>
       </nav>
       <section class="py-0" id="home">
-        <div class="bg-holder d-none d-sm-block" style="background-image:url(assets/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;">
+        <div class="bg-holder d-none d-sm-block" style="background-image:url(assets/img/gallery/user-113.png);background-position:right top;background-size:contain;">
         </div>
         <!--/.bg-holder-->
 
@@ -82,7 +82,7 @@
         </div>
       </section>
       <section class="py-5">
-        <div class="bg-holder" style="background-image:url(assets/img/illustrations/bg.png);background-position:left top;background-size:initial;margin-top:-180px;">
+        <div class="bg-holder" style="background-image:url(assets/img/illustrations/bg123.png);background-position:left top;background-size:initial;margin-top:-180px;">
         </div>
         <!--/.bg-holder-->
 
@@ -173,312 +173,8 @@
                           </div>
                         </div>
                       </div>
-                      <!--<div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
-                          </div>
-                        </div>
-                      </div>-->
-                      <!--<div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/'. $notification->img) }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
-                          </div>
-                        </div>
-                      </div>-->
                     </div>
                   </div>                 
-                  <!--<div class="carousel-item " data-bs-interval="2000"> 
-                    <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                      <div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">{{Str::limit($notification->description, 50) }}</p>
-                          </div>
-                        </div>                       
-                      </div>
-                      <div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>-->
-                  <!--<div class="carousel-item">
-                    <div class="row h-100 m-lg-7 mx-3 mt-6 mx-md-4 my-md-7">
-                      <div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->imgs) }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="col-md-4 mb-8 mb-md-0">
-                        <div class="card card-span h-100 shadow-lg">
-                          <div class="card-span-img"><img src="{{ asset('images/' . $notification->img)  }}" class="rounded-circle" width="134" height="134" alt="" /></div>
-                          <div class="card-body d-flex flex-column flex-center py-6">
-                            <div class="my-4">
-                              <ul class="list-unstyled list-inline">
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"></path>
-                                  </svg>
-                                </li>
-                                <li class="list-inline-item me-0">
-                                  <svg class="bi bi-star-fill" xmlns="http://www.w3.org/2000/svg" width="28" height="26" fill="#FF974D" viewBox="0 0 16 16">
-                                    <path d="M3.612 15.443c-.386.198-.824-.149-.746-.592l.83-4.73L.173 6.765c-.329-.314-.158-.888.283-.95l4.898-.696L7.538.792c.197-.39.73-.39.927 0l2.184 4.327 4.898.696c.441.062.612.636.283.95l-3.523 3.356.83 4.73c.078.443-.36.79-.746.592L8 13.187l-4.389 2.256z"> </path>
-                                  </svg>
-                                </li>
-                              </ul>
-                            </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>-->
                   @endforeach
                 </div>
               </div>             
@@ -486,7 +182,7 @@
           </div>
         </div>
       </section>
-      <section class="py-0 bg-primary-gradient">
+      <section class="py-0 bg-transparent">
         <div class="bg-holder" style="background-image:url(assets/img/illustrations/footer-bg.png);background-position:center;background-size:cover;">
         </div>
         <!--/.bg-holder-->
@@ -510,48 +206,23 @@
               </form>
             </div>
           </div>
-          <div class="row justify-content-lg-between">
-            <div class="col-6 col-sm-4 col-lg-auto mb-3">
-              <h5 class="mb-5 text-white">CATEGORIES </h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">IOS Developers</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Front-End Developers</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">UX Designers</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">UI Designers</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Content Writer</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Program &amp; Tech</a></li>
-              </ul>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <!--former iframe link-->
+                </div>
+              </div>
             </div>
-            <div class="col-6 col-sm-4 col-lg-auto mb-3">
-              <h5 class="mb-5 text-white">COMMUNITY </h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Events</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Blog</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Forum</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Podcast</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Affiliates</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Invite a Friend</a></li>
-              </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-auto mb-3">
-              <h5 class="mb-5 text-white">ABOUT </h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">About Us</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Partnerships</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Finance Experts</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Project Management</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Product Manager</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">The Team</a></li>
-              </ul>
-            </div>
-            <div class="col-6 col-sm-4 col-lg-auto mb-3">
-              <h5 class="mb-5 text-white">CONTACT </h5>
-              <ul class="list-unstyled mb-md-4 mb-lg-0">
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Contact Us</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Press Center</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">Careers</a></li>
-                <li class="mb-3"><a class="text-light text-decoration-none" href="#!">FAQ</a></li>
-              </ul>
+            <div class="col-sm-6">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title">Special title treatment</h5>
+                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                </div>
+              </div>
             </div>
           </div>
           <div class="row flex-center">

@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
+    
     //Home page 
     public function home()
     {
@@ -43,6 +44,38 @@ class HomeController extends Controller
         }else{
             return redirect()->back();
         }
+    }
+
+
+    
+    
+    public function LitcalApi()
+    {
+        
+        $url = "https://litcal.johnromanodorazio.com/api/v3/LitCalEngine.php?";
+        $getfield = array(
+            'locale' => 'EN',
+            'epiphany' => 'JAN6',
+            'ascension' => 'SUNDAY',
+            'corpuschristi' => 'SUNDAY',
+            'year' => '',
+            'returntype' => 'JSON',
+            'nationalpreset' => 'VATICAN',
+            'diocesanpreset' => 'DIOCESILAZIO');
+        
+        
+        
+        $data = getCurldata($url, $getfield);
+
+        
+        $solemnitiesData = json_decode($data, true);
+       $solemnities =  $solemnitiesData["LitCal"];
+        $filteredData = array_filter($solemnities, function($data){
+                $solemnityDays = array('HolyThurs', 'GoodFri', 'EasterVigil', 'Easter', 'Christmas', 'Epiphany', 'AshWednesday', 'PalmSun');
+                return in_array($data["FEASTS_MEMORIALS"]["SOLEMNITIES"], $solemnityDays);
+                });
+        //return  $filteredData;
+        
     }
 
 }
