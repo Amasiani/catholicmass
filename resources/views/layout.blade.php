@@ -161,9 +161,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
-      <img src="/assets/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">AdminLTE 3</span>
+    <a href="{{ url('/home') }}" class="brand-link">
+      <img src="assets/img/gallery/logo.png" alt="catholic Logo" class="brand-image img-circle elevation-3 d-inline-block align-text-bottom" style="opacity: .8; text-decoration: none;">
+      <span class="brand-text  font-weight-light">Catholic Clock</span>
     </a>
 
     <!-- Sidebar -->
@@ -175,11 +175,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </div>
         <div class="info">
           @auth
-          <a href="#" class="d-block">{{ Auth::user()->name }}</a>
+          <a href="#" class="d-block" style="text-decoration: none;">{{ Auth::user()->name }}</a>
           @endauth
           @if(Route::has('login'))
-            <a href="{{ route('logout') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline" onclick="event.preventDefault();
-              document.getElementById('logout-form').submit();" ><p>Logout</p></a>
+            <a href="{{ route('logout') }}" class="ml-4 text-sm text-gray-700 dark:text-gray-500 underline" style="text-decoration: none;" onclick="event.preventDefault();
+              document.getElementById('logout-form').submit();"><p>Logout</p></a>
             <form id='logout-form' action="{{ route('logout') }}" method=POST style="display:none" >
               @csrf
             </form>

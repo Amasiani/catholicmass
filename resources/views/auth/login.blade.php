@@ -5,12 +5,12 @@
         <div class="card login-card">
             <div class="row no-gutters">
                 <div class="col-md-5">
-                    <img src="/img/login.jpg" alt="login" class="login-card-img">
+                    <img src="assets/img/auth/login.jpg" width="900" height="450" alt="login" class="image rounded login-card-img">
                 </div>
                 <div class="col-md-7">
                     @if($errors->any())
                         @foreach ($errors->all() as $error)
-                            <h1>{{ $error }}</h1>
+                            <h1 class="text-white">{{ $error }}</h1>
                         @endforeach
                     @endif
                     @error('email')
@@ -20,9 +20,9 @@
                     @enderror
                     <div class="card-body">
                         <div class="brand-wrapper">
-                            <img src="/img/logo.png" alt="logo" class="logo">
+                            <img src="assets/img/auth/logo.png" alt="" class="logo">
                         </div>
-                        <p class="login-card-description">Sign into your account</p>
+                        <p class="login-card-description" class="text-mute">Sign into your account</p>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf
                             <div class="form-group">
@@ -43,13 +43,13 @@
                                     </span>
                                 @enderror
                             </div>
-                            <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
+                            <input name="login" id="login" class="btn btn-primary login-btn mb-4" type="submit" value="Login">
                         </form>
-                        <a href="{{ url('forgot-password') }}" class="forgot-password-link">Forgot password?</a>
-                        <p class="login-card-footer-text">Don't have an account? <a href="{{ route('register') }}" class="text-reset">Register here</a></p>
+                        <a href="{{ url('forgot-password') }}" class="text-white" class="forgot-password-link">Forgot password?</a>
+                        <p class="login-card-footer-text text-white">Don't have an account? <a href="{{ route('contact') }}" class="text-reset">Contact Admin</a></p>
                         <nav class="login-card-footer-nav">
-                            <a href="#!">Terms of use.</a>
-                            <a href="#!">Privacy policy</a>
+                            <a href="#!" class="text-warning">Terms of use.</a>
+                            <a href="{{ url('/privacy') }}" class="text-warning">Privacy policy</a>
                         </nav>
                     </div>
                 </div>

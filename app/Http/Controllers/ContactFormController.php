@@ -31,7 +31,7 @@ class ContactFormController extends Controller
             'message' => $request->message
             ];
 
-        Mail::to('test@test.com')->send(new ContactMail($details));
+        Mail::to('info@catholicclock.com')->send(new ContactMail($details));
 
         return back()->with('success', 'Your message has been sent successfully');
     }

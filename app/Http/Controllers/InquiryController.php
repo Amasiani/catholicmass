@@ -26,7 +26,7 @@ class InquiryController extends Controller
             'message' => $request->message,
         ];
 
-        Mail::to('request->email')->send(new InquiryMail($details));
+        Mail::to('info@catholicclock.com')->send(new InquiryMail($details));
         return back()->with('success', 'message sent successfully');
     }
 

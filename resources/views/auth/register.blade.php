@@ -5,12 +5,12 @@
         <div class="card login-card">
             <div class="row no-gutters">
                 <div class="col-md-5">
-                    <img src="/img/login.jpg" alt="login" class="login-card-img">
+                    <img src="assets/img/auth/login.jpg" width="900" height="650"  alt="login" class="login-card-img image rounded">
                 </div>
                 <div class="col-md-7">
                     <div class="card-body">
                         <div class="brand-wrapper">
-                            <img src="/img/logo.png" alt="logo" class="logo">
+                            <img src="/img/logo.png" alt="" class="logo">
                         </div>
                         <p class="login-card-description">Register a new account</p>
                         <form method="POST" action="{{ route('register') }}">
@@ -47,9 +47,9 @@
                                 <label for="password" class="sr-only">Password</label>
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
                             </div>
-                            <input name="register" id="register" class="btn btn-block login-btn mb-4" type="submit" value="Register">
+                            <input name="register" id="register" class="btn btn-primary login-btn mb-4" type="submit" value="Register">
                         </form>
-                        <a href="#!" class="forgot-password-link">Forgot password?</a>
+                        <a href="#!" class="text-muted" class="forgot-password-link">Forgot password?</a>
                         <p class="login-card-footer-text">Already have an account? <a href="{{ route('login') }}" class="text-reset">Login here</a></p>
                         <nav class="login-card-footer-nav">
                             <a href="#!">Terms of use.</a>

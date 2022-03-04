@@ -61,3 +61,18 @@ function curl_post($url, array $post = NULL, array $options = array())
     curl_close($ch);
     return $result;
 }
+
+
+function dateUTC($format, $timestamp)
+{
+    //if ($timestamp === null) $timestamp = time();
+
+    //$tz = new DateTimeZone('UTC'); //date_default_timezone_get();
+    
+
+    $result = date($format, $timestamp);
+    date_default_timezone_set('UTC');
+    //date_default_timezone_set($tz);
+    return $result;
+
+}

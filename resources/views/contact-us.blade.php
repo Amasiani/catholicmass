@@ -1,11 +1,11 @@
-@extends('template')
+@extends('Mailtemplate')
 
 @section('content')
-    <section style="padding-top:60px;">
+    <section style="padding-top:120px;">
         <div class="container">
             <div class="row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="card">
+                <div class="col">
+                    <div class="card" style="max-width: 900px;">
                         <div class="card-header">
                               Contact Us
                         </div>
@@ -15,9 +15,9 @@
                                         {{Session::get('message_sent')}}
                                     </div>
                                 @endif
-                                <form method="POST" action="{{route('contact.send')}}" enctype="multipart/form-data">
+                                <form method="POST" action="{{route('contact.send')}}" class="row g-3" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="mb-3">
+                                    <div class="col-mb-8">
                                         <label for="name">Name:</label>
                                         <input type="text" name="name" class="form-control @error('name') is-invalided @enderror" />
                                         @error('name')
@@ -26,7 +26,7 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="col-mb-8">
                                         <label for="email">Email:</label>
                                         <input type="email" name="email" class="form-control @error('email') is-invalid @enderror" />
                                         @error('email')
@@ -35,7 +35,7 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="col-mb-8">
                                         <label for="phone">Phone:</label>
                                         <input type="text" name="phone" class="form-control @error('phone') is-invalid @enderror" />
                                         @error('phone')
@@ -44,7 +44,7 @@
                                         </span>
                                         @enderror
                                     </div>
-                                    <div class="mb-3">
+                                    <div class="col-mb-8">
                                         <label for="message">Message</label>
                                         <textarea name="message" class="form-control @error('message') is-invalid @enderror"></textarea>
                                         @error('message')

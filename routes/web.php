@@ -39,7 +39,8 @@ Route::get('/', function () {
 
 Route::get('/admin', [WelcomeController::class, 'admin'])->name('admin');
 Route::get('/home', [HomeController::class, 'redirect']);
-Route::get('/child', [HomeController::class, 'LitcalApi'])->name('child');
+Route::get('/child', [HomeController::class, 'LitcalApi']);
+Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/contact-us', [ContactFormController::class, 'Contactindex'])->name('contact');
 Route::post('/send-contact', [ContactFormController::class, 'sendContactMail'])->name('contact.send');
 

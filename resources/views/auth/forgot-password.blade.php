@@ -5,7 +5,7 @@
         <div class="card login-card">
             <div class="row no-gutters">
                 <div class="col-md-5">
-                    <img src="/img/login.jpg" alt="login" class="login-card-img">
+                    <img src="/assets/img/auth/login.jpg" alt="login" width="900" height="400" class="login-card-img image rounded">
                 </div>
                 <div class="col-md-7">
                     @if($errors->any())
@@ -20,7 +20,7 @@
                     @enderror
                     <div class="card-body">
                         <div class="brand-wrapper">
-                            <img src="/img/logo.png" alt="logo" class="logo">
+                            <img src="/img/logo.png" alt="" class="logo">
                         </div>
                         <p class="login-card-description">Sign into your account</p>
                         @if(session('status'))
@@ -32,19 +32,19 @@
                             @csrf
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
+                                <input type="email" name="email" id="email" class="form-control mb-2" placeholder="Email address">
                                 @error('email')
                                 <span class="invalid-feedback is-invalid" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                            <input name="reset" id="reset" class="btn btn-block login-btn mb-4" type="submit" value="Reset">
+                            <input name="reset" id="reset" class="btn btn-primary login-btn mb-4" type="submit" value="Reset">
                         </form>
-                        <p class="login-card-footer-text">Don't have an account? <a href="{{ route('register') }}" class="text-reset">Register here</a></p>
+                        <p class="login-card-footer-text" class="">Don't have an account? <a href="{{ route('register') }}" class="text-reset">Register here</a></p>
                         <nav class="login-card-footer-nav">
-                            <a href="#!">Terms of use.</a>
-                            <a href="#!">Privacy policy</a>
+                            <a href="#!" class="text-warning">Terms of use.</a>
+                            <a href="#!" class="text-warning">Privacy policy</a>
                         </nav>
                     </div>
                 </div>

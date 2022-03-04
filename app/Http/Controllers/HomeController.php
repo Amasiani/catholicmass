@@ -9,8 +9,10 @@ use App\Models\Notification;
 use App\Models\Role;
 use App\Models\Society;
 use App\Models\User;
-use Illuminate\Http\Request;
+use Illuminate\Support\Arr;
+use illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Js;
 
 class HomeController extends Controller
 {
@@ -19,6 +21,11 @@ class HomeController extends Controller
     public function home()
     {
         return view('/dashboard', ['churches' => Church::paginate(10)]);
+    }
+
+    public function privacy()
+    {
+        return view('/privacy');
     }
 
     public function redirect()
@@ -45,15 +52,18 @@ class HomeController extends Controller
             return redirect()->back();
         }
     }
-
-
     
     
     public function LitcalApi()
     {
-        
+        /**
+         * $url Set the API endpoint to a variablr
+         * $getfield API endpoint setting
+         * #getCurldata() helper function from Http\Helper\helper.php
+         * @params string $url and array $getfieldaccepts   
+         */
         $url = "https://litcal.johnromanodorazio.com/api/v3/LitCalEngine.php?";
-        $getfield = array(
+        $getfields = array(
             'locale' => 'EN',
             'epiphany' => 'JAN6',
             'ascension' => 'SUNDAY',
@@ -61,21 +71,30 @@ class HomeController extends Controller
             'year' => '',
             'returntype' => 'JSON',
             'nationalpreset' => 'VATICAN',
-            'diocesanpreset' => 'DIOCESILAZIO');
+            'diocesanpreset' => 'DIOCESILAZIO');     
         
+        $response = getCurldata($url, $getfields);
         
-        
-        $data = getCurldata($url, $getfield);
+        /**
+         * converting the JSON field to an associative array
+         */
+        $data = json_decode($response, true); //Js::from($data) -- Larave alternative method
+        $litcaldata = $data['LitCal'];
+        /**
+         * #Arr::pluck() => Laravel Array help function for fecthing data from
+         * deeply nested array using dot notiation.
+         * #Arr::query() => Laravel Array helper function converts associative to a query.
+         * And cast #data from type array to string
+         * #Str::remove() => Laravel String helper method from string slicing 
+         */
+        $dataArray = Arr::dot($litcaldata);
+        //$feast = $data['AshWednesday.date'];
+        $feastdate = intval($dataArray['Christmas.date']);
+        $Christmasdate = dateUTC('d-m-Y', $feastdate);
+        return view('/child', ['feast' => $dataArray,
+        'xmasDate' => $Christmasdate]);
 
-        
-        $solemnitiesData = json_decode($data, true);
-       $solemnities =  $solemnitiesData["LitCal"];
-        $filteredData = array_filter($solemnities, function($data){
-                $solemnityDays = array('HolyThurs', 'GoodFri', 'EasterVigil', 'Easter', 'Christmas', 'Epiphany', 'AshWednesday', 'PalmSun');
-                return in_array($data["FEASTS_MEMORIALS"]["SOLEMNITIES"], $solemnityDays);
-                });
-        //return  $filteredData;
-        
+
     }
 
 }
