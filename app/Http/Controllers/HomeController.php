@@ -80,17 +80,17 @@ class HomeController extends Controller
          */
         $data = json_decode($response, true); //Js::from($data) -- Larave alternative method
         $litcaldata = $data['LitCal'];
+
+        
         /**
-         * #Arr::pluck() => Laravel Array help function for fecthing data from
-         * deeply nested array using dot notiation.
-         * #Arr::query() => Laravel Array helper function converts associative to a query.
-         * And cast #data from type array to string
-         * #Str::remove() => Laravel String helper method from string slicing 
+         * Arr::dot() laravel function
+         * #intval() casting to integer
+         * #dateUTC() convert timestamp to UTC Timezome
          */
         $dataArray = Arr::dot($litcaldata);
-        //$feast = $data['AshWednesday.date'];
         $feastdate = intval($dataArray['Christmas.date']);
         $Christmasdate = dateUTC('d-m-Y', $feastdate);
+
         return view('/child', ['feast' => $dataArray,
         'xmasDate' => $Christmasdate]);
 
