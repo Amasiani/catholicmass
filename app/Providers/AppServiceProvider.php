@@ -4,6 +4,7 @@ namespace App\Providers;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
+use Illuminate\Support\Facades\File;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -27,5 +28,13 @@ class AppServiceProvider extends ServiceProvider
         //booststrap paginator method library
         Paginator::useBootstrap();
 
+        $this->autoload();
+
+    }
+
+    private function autoload() {
+        if(File::exists(app_path('helper.php'))){
+            require_once(app_path('helper.php'));
+        }
     }
 }
