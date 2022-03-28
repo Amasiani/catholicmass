@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ChurchController extends Controller
 {
+    
+    public function __construct()
+    {
+        $this->middleware(['auth.isAdmin', 'auth.isEditor']);
+    }
     /**
      * Display a listing of the resource.
      *

@@ -13,11 +13,15 @@
                 <div class="card">
                     <div class="card-body">
                         <ol>
-                            <li><strong class="text-info">Christmas: &nbsp;&nbsp;</strong>{{ $xmasDate }}</li><hr />
-                            <li><strong>Easter: &nbsp;&nbsp;</strong>{{ $easterdate }}</li><hr />
+                            <li><strong>Baptism of our Lord: &nbsp;&nbsp;</strong>{{ $baptismLord }}</li><hr />
+                            <li><strong>Ash Wednesday: &nbsp;&nbsp;</strong>{{ $ashWednesday }}</li><hr />
                             <li><strong>Annunciation: &nbsp; &nbsp;</strong>{{ $annunciation }}</li><hr />
-                            <li><strong>Ash Wednesday: &nbsp; &nbsp;</strong>{{ $ashWednesday }}</li><hr />
-                            <li><strong>All Saints: &nbsp; &nbsp;</strong>{{ $allSaints  }}</li>
+                            <li><strong>Palm Sunday: &nbsp;&nbsp;</strong>{{ $PalmSunday }}</li><hr />
+                            <li><strong>Easter Sunday: &nbsp;&nbsp;</strong>{{ $easterdate }}</li><hr />
+                            <li><strong>Corpus Christi: &nbsp; &nbsp;</strong>{{ $corpusChristi }}</li><hr />
+                            <li><strong>All Saints (All Hallows): &nbsp; &nbsp;</strong>{{ $allSaints  }}</li><hr />
+                            <li><strong>Christ the King: &nbsp; &nbsp;</strong>{{ $christKing }}</li><hr />
+                            <li><strong class="text-info">Christmas day: &nbsp;&nbsp;</strong>{{ $xmasDate }}</li>
                         </ol>
                     </div>
                 </div>

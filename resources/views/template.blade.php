@@ -210,9 +210,9 @@
                 <div class="card-body">
                   <h5 class="card-header">Yearly Liturgical Calendar</h5>
                   <ul class="list-group">
-                    <li class="list-group-item"><iframe src="{{  url('/child') }}" frameborder="0"></iframe></li>
+                    <li class="list-group-item"><iframe src="{{  url('/child') }}" width="480" height="324" frameborder="0"></iframe></li>
                   </ul>
-                  <p class="card-text text-info"></p>
+                  <p class="card-text text-info">hello</p>
                 </div>
               </div>
             </div>

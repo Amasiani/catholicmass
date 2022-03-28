@@ -101,6 +101,18 @@ class HomeController extends Controller
         //AllSaints
         $allSaintsdate = intval($dataArray['AllSaints.date']);
         $allSaints = dateUTC('d-m-y', $allSaintsdate);
+        //ChristKing
+        $christKingdate = intval($dataArray['ChristKing.date']);
+        $christKing = dateUTC('d-m-Y', $christKingdate);
+        //CorpusChristi
+        $corpusChristidate = intval($dataArray['CorpusChristi.date']);
+        $corpusChristi = dateUTC('d-m-Y', $corpusChristidate);
+        //BaptismLord
+        $baptismLorddate = intval($dataArray['BaptismLord.date']);
+        $baptismLord = dateUTC('d-m-Y', $baptismLorddate);
+        //PalmSunday
+        $palmSundaydate = intval($dataArray['PalmSun.date']);
+        $palmSunday = dateUTC('d-m-Y', $palmSundaydate);
 
 
         return view('/child', [
@@ -110,6 +122,10 @@ class HomeController extends Controller
             'annunciation' => $Annunciation,
             'ashWednesday' => $ashWednesday,
             'allSaints' => $allSaints,
+            'christKing' => $christKing,
+            'corpusChristi' => $corpusChristi,
+            'baptismLord' => $baptismLord,
+            'PalmSunday' => $palmSunday,
         ]);
 
 
