@@ -113,6 +113,12 @@ class HomeController extends Controller
         //PalmSunday
         $palmSundaydate = intval($dataArray['PalmSun.date']);
         $palmSunday = dateUTC('d-m-Y', $palmSundaydate);
+        //Ascension
+        $ascensiondate = intval($dataArray['Ascension.date']);
+        $ascension = dateUTC('d-m-Y', $ascensiondate);
+        //Pentecost
+        $pentecostdate = intval($dataArray['Pentecost.date']);
+        $pentecost = dateUTC('d-m-Y', $pentecostdate);
 
 
         return view('/child', [
@@ -126,6 +132,8 @@ class HomeController extends Controller
             'corpusChristi' => $corpusChristi,
             'baptismLord' => $baptismLord,
             'PalmSunday' => $palmSunday,
+            'ascension' => $ascension,
+            'pentecost' => $pentecost,
         ]);
 
 

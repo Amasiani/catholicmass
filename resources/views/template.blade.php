@@ -217,7 +217,7 @@
                 <div class="card-body">
                   <h5 class="card-header">Yearly Liturgical Calendar</h5>
                   <ul class="list-group">
-                    <li class="list-group-item"><iframe src="{{  url('/child') }}" width="480" height="324" frameborder="0"></iframe></li>
+                    <li class="list-group-item"><iframe src="{{  url('/child') }}" width="400" height="400" frameborder="1"></iframe></li>
                   </ul>
                   <p class="card-text text-alert">Daily readings coming soon</p>
                 </div>

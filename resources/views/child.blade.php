@@ -18,6 +18,8 @@
                             <li><strong>Annunciation: &nbsp; &nbsp;</strong>{{ $annunciation }}</li><hr />
                             <li><strong>Palm Sunday: &nbsp;&nbsp;</strong>{{ $PalmSunday }}</li><hr />
                             <li><strong>Easter Sunday: &nbsp;&nbsp;</strong>{{ $easterdate }}</li><hr />
+                            <li><strong>Ascension into heaven: &nbsp;&nbsp;</strong>{{ $ascension }}</li><hr />
+                            <li><strong>Pentecost Sunday: &nbsp;&nbsp;</strong>{{ $pentecost }}</li><hr />
                             <li><strong>Corpus Christi: &nbsp; &nbsp;</strong>{{ $corpusChristi }}</li><hr />
                             <li><strong>All Saints (All Hallows): &nbsp; &nbsp;</strong>{{ $allSaints  }}</li><hr />
                             <li><strong>Christ the King: &nbsp; &nbsp;</strong>{{ $christKing }}</li><hr />
