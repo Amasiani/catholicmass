@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use App\Http\Controllers\HomeController;
+use App\Models\Church;
 use App\Models\Notification;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -31,9 +32,9 @@ class NotificationServiceProvider extends ServiceProvider
             $view->with('notifications', Notification::all());
         });
 
-        /**View::composer('template', function($view){
-            $view->with('feast', [HomeController::class, 'LitcalApi']);
-        });*/
+        View::composer('template', function($view){
+            $view->with('churches', Church::paginate(5));
+        });
 
     }
 }

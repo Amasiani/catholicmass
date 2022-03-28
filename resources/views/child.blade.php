@@ -10,7 +10,7 @@
     <div class="container">
         <div class="row">
             <div class="col">
-                <div class="card">
+                <div class="card text-center">
                     <div class="card-body">
                         <ol>
                             <li><strong>Baptism of our Lord: &nbsp;&nbsp;</strong>{{ $baptismLord }}</li><hr />
