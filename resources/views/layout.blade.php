@@ -7,12 +7,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>AdminLTE 3 | Starter</title>
+  <title>Catholic Clock</title>
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="/assets/plugins/fontawesome-free/css/all.min.css">
   <!-- Theme style -->
+  <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico">
   <link rel="stylesheet" href="/assets/dist/css/adminlte.min.css">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/admin-lte@3.1/dist/css/adminlte.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
@@ -162,7 +163,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="{{ url('/home') }}" class="brand-link">
-      <img src="assets/img/gallery/logo.png" alt="catholic Logo" class="brand-image img-circle elevation-3 d-inline-block align-text-bottom" style="opacity: .8; text-decoration: none;">
+      <img src="/assets/img/gallery/logo.png" alt="catholic Logo" class="image rounded-circle" style="opacity: .8; text-decoration: none;">
       <span class="brand-text  font-weight-light">Catholic Clock</span>
     </a>
 
@@ -212,7 +213,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
         </button>
         @auth
           <ul class="dropdown-menu">
-          @if(Auth::user()->usertype == 1)        
+          <!--@if(Auth::user()->usertype == 1)-->
+          @canany(['is-admin', 'is-editor'])        
             <li><a class="dropdown-item" href="{{ route('admin.users.index') }}">Users</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.churches.index') }}">Churches</a></li>
             <!--<li><a class="dropdown-item" href="{{ route('admin.roles.index') }}">Roles</a></li>-->
@@ -221,7 +223,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <li><a class="dropdown-item" href="{{ route('admin.announcements.index') }}">Announcements</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.notifications.index') }}">Notifications</a></li>
             <li><a class="dropdown-item" href="{{ route('admin.societies.index') }}">Societies</a></li>
-          @elseif($user = Auth::user())
+          @endcanany
+            <!--@elseif($user = Auth::user())-->
             @foreach($user->churches as $church)
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item" href="{{ route('admin.churches.show', $church->id) }}">{{ $church->name }}</a></li>
@@ -245,7 +248,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Starter Pages
+                
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -287,12 +290,12 @@ scratch. This page gets rid of all links and provides the needed markup only.
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1 class="m-0">Starter Page</h1>
+            <h1 class="m-0"></h1>
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
               <li class="breadcrumb-item"><a href="{{ url('/home') }}">Home</a></li>
-              <li class="breadcrumb-item active">Starter Page</li>
+              <li class="breadcrumb-item active"></li>
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->

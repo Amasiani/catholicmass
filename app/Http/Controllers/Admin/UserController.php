@@ -7,6 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Models\Church;
 use App\Models\Role;
 use App\Models\User;
+use Exception;
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
 
@@ -103,12 +105,28 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //update user
         $user = User::find($id);
+        
+        //Admin update user
+        if(Gate::allows('is-admin'))
+        {
+            $user->update($request->except(['_token', 'role']));
+            $user->roles()->sync($request->roles);
 
-        $user->update($request->except(['_token', 'church', 'role']));
-        $user->churches()->sync($request->churches);
-        $user->roles()->sync($request->roles);
+        }
+        //Editor update user
+        else
+        {
+            try{
+                $user->update($request->except(['_token', 'church', 'role']));
+                if(!$user->churches()->sync($request->churches && !$user->roles()->sync($request->roles))){
+                    throw New Exception("Incomplete inputs, likely 'Church' not selected");
+                }
+            }catch (Exception $e){
+               echo 'Input error: ', $e->getMessage();
+            }
+            
+        }        
 
         $request->session()->flash('success', 'User updated');
         return redirect()->route('admin.users.index');

@@ -19,7 +19,7 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x321.png">
     <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16123.png">
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicons/favicon.ico">
+    <link rel="shortcut icon" type="image/x-icon" href="/assets/img/favicons/favicon.ico">
     <link rel="manifest" href="assets/img/favicons/manifest.json">
     <meta name="msapplication-TileImage" content="assets/img/favicons/mstile-150x150.png">
     <meta name="theme-color" content="#ffffff">
@@ -40,8 +40,9 @@
     <!-- ===============================================-->
     <main class="main" id="top">
       <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 backdrop" data-navbar-on-scroll="data-navbar-on-scroll" style="background-color: #65c2f5;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center fw-bolder fs-2 fst-italic" href="#">
-            <img src="assets/img/gallery/logo.png" class="image rounded-circle" alt="logo">
+        <div class="container">
+        <a class="navbar-brand d-flex align-items-center fw-bolder fs-2 fst-italic" href="{{ url('/') }}">
+            <img src="assets/img/gallery/logo.png" class="rounded-circle" alt="logo">
              <div class="col md-6 px-1">Catholic Clock</div>           
           </a>
           <button class="navbar-toggler collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
@@ -81,22 +82,6 @@
           </div>
         </div>
       </section>
-      <section class="py-5">
-        <div class="bg-holder" style="background-image:url(assets/img/illustrations/bg123.png);background-position:left top;background-size:initial;margin-top:-180px;">
-        </div>
-        <!--/.bg-holder-->
-
-        <div class="container">
-          <div class="row flex-center">
-            <div class="col-md-5 order-md-0 text-center text-md-start"><img class="img-fluid mb-4" src="assets/img/illustrations/passion.png" width="450" alt="" /></div>
-            <div class="col-md-5 text-center text-md-start">
-              <h6 class="fw-bold fs-2 fs-lg-3 display-3 lh-sm">Find your passion and<br />achieve success</h6>
-              <p class="my-4 pe-xl-8"> find a job that suits your interests and talents. A high salary is not the top priority. Most importantly,You can work according to your heart's desire.</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
 
       <!-- <section> begin ============================-->
       <section class="py-8">
@@ -116,8 +101,8 @@
         <div class="container">
           <div class="row align-items-center">
             <div class="col-12 text-center">
-              <h6 class="fw-bold fs-3 fs-lg-5 lh-sm">Come on, join with us !</h6>
-              <p>Create an account and refer your friend </p>
+              <h6 class="fw-bold fs-3 fs-lg-5 lh-sm">Come on, join us in spreading the gospel to the world !</h6>
+              <p>Contact the <a href="{{ route('contact') }}">Admin</a> for an editior account, to manage your parish website with us Free!!! </p>
             </div>
           </div>
         </div>
@@ -170,7 +155,7 @@
                                 </li>
                               </ul>
                             </div>
-                            <p class="card-text text-center text-1000 px-4">I love Jobest, easy platform to use,fantasic staff and nothing but great results!</p>
+                            <p class="card-text text-center text-1000 px-4">{{ $notification->description }}</p>
                           </div>
                         </div>
                       </div>
@@ -211,7 +196,7 @@
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-header">Yearly Liturgical Calendar</h5>
+                  <h5 class="card-header">Place your Ads with us for wilder coverage</h5>
                   <ul class="list-group list-group-flush">
                     <li class="list-group-item">A first item</li>
                     <li class="list-group-item">A second item</li>
@@ -223,9 +208,11 @@
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text text-info"><iframe src="{{  url('/child') }}" frameborder="0"></iframe></p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-header">Yearly Liturgical Calendar</h5>
+                  <ul class="list-group">
+                    <li class="list-group-item"><iframe src="{{  url('/child') }}" frameborder="0"></iframe></li>
+                  </ul>
+                  <p class="card-text text-info"></p>
                 </div>
               </div>
             </div>
@@ -263,9 +250,6 @@
     <!-- ===============================================-->
     <!--    End of Main Content-->
     <!-- ===============================================-->
-
-
-
 
     <!-- ===============================================-->
     <!--    JavaScripts-->

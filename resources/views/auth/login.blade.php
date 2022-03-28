@@ -5,7 +5,7 @@
         <div class="card login-card">
             <div class="row no-gutters">
                 <div class="col-md-5">
-                    <img src="assets/img/auth/login.jpg" width="900" height="450" alt="login" class="image rounded login-card-img">
+                    <img src="assets/img/auth/login.jpg" width="900" height="450" alt="login" class="img-fluid rounded login-card-img">
                 </div>
                 <div class="col-md-7">
                     @if($errors->any())

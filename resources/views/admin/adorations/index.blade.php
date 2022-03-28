@@ -9,28 +9,28 @@
                 <a href="{{ route('admin.adorations.create') }}" role="button" class="btn btn-primary btn-sm mb-2 float-end">Add adoration</a>
             </div>
             <div class="card-body">
-            <table class="table table-striped table-hover">
-            <thead>
-                <tr>
-                    <td scope="col">#</td>
-                    <td scope="col">Name</td>
-                    <td scope="col">Program</td>
-                    <td scope="col">Address</td>
-                    <td scope="col">Action</td>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach($adorations as $adoration)
-                <tr>
-                    <td scope="row">{{ $adoration->id }}</td>
-                    <td>{{ $adoration->name }}</td>
-                    <td>{{Str::limit($adoration->program, 50) }}</td>
-                    <td>{{ $adoration->address }}</td>
-                    <td><a href="{{ route('admin.adorations.show', $adoration->id) }}" role="button" class="btn btn-info btn-sm">Detail</a></td>
-                </tr>
-                @endforeach
-            </tbody>
-        </table>
+                <div class="table-responsive">
+                <table class="table table-striped table-hover">
+                    <thead>
+                        <tr>
+                            <th scope="col">Name</th>
+                            <th scope="col">Program</th>
+                            <th scope="col">Address</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                        <tbody>
+                            @foreach($adorations as $adoration)
+                            <tr>
+                                <td scope="row">{{ $adoration->name }}</td>
+                                <td>{{Str::limit($adoration->program, 50) }}</td>
+                                <td>{{ $adoration->address }}</td>
+                                <td><a href="{{ route('admin.adorations.show', $adoration->id) }}" role="button" class="btn btn-info btn-sm">Detail</a></td>
+                            </tr>
+                            @endforeach
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
         {{ $adorations->links()}}

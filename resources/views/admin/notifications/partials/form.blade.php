@@ -1,5 +1,5 @@
 
-<div class="col-12">
+    <div class="col-12">
     <label for="title" class="form-label">Title</label>
     <input type="text" value="{{ old('title') }} @isset($notification) {{ $notification->title }} @endisset" name="title" class="form-control @error('title') is-invalid @enderror" id="title" placeholder="Title">
     @error('title')
@@ -17,8 +17,8 @@
     </span>
     @enderror
     </div>
-    <div class="mb-3">
+    <div class="col-12">
         <label for="image" class="form-label">Choice image...</label>
         <input class="form-control" name="image" type="file" id="image">
-        <img src=" @isset($notification){{ asset('images/' . $notification->img) }}@endisset" width="50px" heigth="50px" alt="notification_image">
-</div>
+        <img src=" @isset($notification){{ asset('images/' . $notification->img) }}@endisset" width="50px" heigth="50px" class="img-fluid" alt="notification_image">
+    </div>

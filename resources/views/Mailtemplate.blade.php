@@ -32,8 +32,10 @@
 
     </head>
     <body>
+    <main class="main" id="top">
     <nav class="navbar navbar-expand-lg navbar-light fixed-top py-3 backdrop" data-navbar-on-scroll="data-navbar-on-scroll" style="background-color: #65c2f5;">
-        <div class="container"><a class="navbar-brand d-flex align-items-center fw-bolder fs-2 fst-italic" href="{{ url('/') }}">
+        <div class="container">
+          <a class="navbar-brand d-flex align-items-center fw-bolder fs-2 fst-italic" href="{{ url('/') }}">
             <img src="assets/img/gallery/logo.png" class="rounded-circle" alt="logo">
              <div class="col md-6 px-1">Catholic Clock</div>           
           </a>
@@ -50,7 +52,7 @@
           </div>
         </div>
     </nav>
-    <main class="main" id="top">
+    
         <div id="app">
             <div class="container">
                 <div class="row">
@@ -91,17 +93,23 @@
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <!--former iframe link-->
+                  <h5 class="card-header">Place your Ads with us for wilder coverage</h5>
+                  <ul class="list-group list-group-flush">
+                    <li class="list-group-item">A first item</li>
+                    <li class="list-group-item">A second item</li>
+                    <li class="list-group-item">A third item</li>
+                  </ul>
                 </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="card">
                 <div class="card-body">
-                  <h5 class="card-title">Special title treatment</h5>
-                  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
+                  <h5 class="card-header">Yearly Liturgical Calendar</h5>
+                  <ul class="list-group">
+                    <li class="list-group-item"><iframe src="{{  url('/child') }}" frameborder="0"></iframe></li>
+                  </ul>
+                  <p class="card-text text-info"></p>
                 </div>
               </div>
             </div>
@@ -126,10 +134,10 @@
           </div>
           <div class="row justify-content-center">
             <div class="col-auto mb-2">
-              <p class="mb-0 fs--1 text-dark my-2 text-center"><strong>&copy; This webApp is made with&nbsp;
+              <p class="mb-0 fs--1 text-dark my-2 text-center">&copy; This webApp is made with&nbsp;
                 <svg class="bi bi-suit-heart-fill" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#1F3A63" viewBox="0 0 16 16">
                   <path d="M4 1c2.21 0 4 1.755 4 3.92C8 2.755 9.79 1 12 1s4 1.755 4 3.92c0 3.263-3.234 4.414-7.608 9.608a.513.513 0 0 1-.784 0C3.234 9.334 0 8.183 0 4.92 0 2.755 1.79 1 4 1z"></path>
-                </svg>&nbsp;by&nbsp;<a class="text-dark" href="https://eastsunnetwork.com/" target="_blank">Eastsun Network Ltd </a></strong>
+                </svg>&nbsp;by&nbsp;<a class="text-dark" href="https://eastsunnetwork.com/" target="_blank">Eastsun Network Ltd </a>
               </p>
             </div>
           </div>

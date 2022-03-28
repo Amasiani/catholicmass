@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('content')
-<section style="padding-top: 5px;"></section>
+<section style="padding-top: 5px;">
     <div class="container">
         <div class="col-md-9 offset-1">    
             <div class="card" style="max-width: 900px;">

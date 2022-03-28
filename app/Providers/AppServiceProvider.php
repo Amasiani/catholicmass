@@ -37,8 +37,8 @@ class AppServiceProvider extends ServiceProvider
     }
 
     private function autoload() {
-        if(File::exists(app_path('helper.php'))){
-            require_once(app_path('helper.php'));
+        if (File::exists(app_path('Helpers/helper.php'))){
+            require_once(app_path('Helpers/helper.php'));
         }
     }
 

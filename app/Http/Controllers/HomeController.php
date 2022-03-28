@@ -10,9 +10,7 @@ use App\Models\Role;
 use App\Models\Society;
 use App\Models\User;
 use Illuminate\Support\Arr;
-use illuminate\Support\Str;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Js;
 
 class HomeController extends Controller
 {
@@ -88,11 +86,31 @@ class HomeController extends Controller
          * #dateUTC() convert timestamp to UTC Timezome
          */
         $dataArray = Arr::dot($litcaldata);
+        //Chrismas Date
         $feastdate = intval($dataArray['Christmas.date']);
         $Christmasdate = dateUTC('d-m-Y', $feastdate);
+        //Easter Date
+        $easterdate = intval($dataArray['Easter.date']);
+        $Easter = dateUTC('d-m-Y', $easterdate);
+        //Annunciation
+        $annunciationdate = intval($dataArray['Annunciation.date']);
+        $Annunciation = dateUTC('d-m-Y', $annunciationdate);
+        //AshWednesday
+        $ashWednesdaydate = intval($dataArray['AshWednesday.date']);
+        $ashWednesday = dateUTC('d-m-Y', $ashWednesdaydate);
+        //AllSaints
+        $allSaintsdate = intval($dataArray['AllSaints.date']);
+        $allSaints = dateUTC('d-m-y', $allSaintsdate);
 
-        return view('/child', ['feast' => $dataArray,
-        'xmasDate' => $Christmasdate]);
+
+        return view('/child', [
+            'feast' => $dataArray,
+            'xmasDate' => $Christmasdate,
+            'easterdate' => $Easter,
+            'annunciation' => $Annunciation,
+            'ashWednesday' => $ashWednesday,
+            'allSaints' => $allSaints,
+        ]);
 
 
     }

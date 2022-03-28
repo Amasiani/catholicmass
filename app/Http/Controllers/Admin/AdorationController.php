@@ -28,7 +28,7 @@ class AdorationController extends Controller
     public function create()
     {
         //create a new adoration object
-        return view('admin.adoration.create');
+        return view('admin.adorations.create');
     }
 
     /**

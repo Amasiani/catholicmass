@@ -36,6 +36,7 @@
     @enderror
 </div>
 @endisset
+@can('is-editor')
 <div class="col-md-6">                                                                        
     <select name="churches[]" id="church" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
         <option>--Select church--</option>
@@ -44,6 +45,7 @@
         @endforeach
     </select>                                                                         
 </div> 
+@endcan
 <div class="col-md-6">
     <div class="form-check form-check-inline">                                        
         @foreach($roles as $role)

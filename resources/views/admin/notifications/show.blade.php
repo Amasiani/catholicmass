@@ -3,9 +3,9 @@
 @section('content')
 <section style="padding-top:5px;">
   <div class="container">
-	  <div class="row">
-    <div class="col-md-12">      
-      	<div class="card" style="width: 850px;">
+	  <div class="row g-0">
+    <div class="col-md-8">      
+      	<div class="card" style="width: 750px;">
         	<div class="card-header">
         		<button class="btn btn-danger ml-2 mb-1 float-end"
         			onclick="event.preventDefault();

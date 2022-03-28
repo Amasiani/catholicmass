@@ -40,6 +40,6 @@ class NotificationPolicy
 
         return $user->id === $notification->user_id
                 ? Response::allow()
-                : Response::deny('You do not own this ontification.');
+                : Response::deny('You do not own this notification.');
     }
 }
