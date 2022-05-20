@@ -108,6 +108,14 @@ class UserController extends Controller
         $user = User::find($id);
         
         //Admin update user
+       /**
+        $user->update($request->except(['_token', 'role']));
+        $user->roles()->sync($request->roles);
+
+        $request->session()->flash('success', 'User updated');
+        return redirect()->route('admin.users.index');
+        */
+        
         if(Gate::allows('is-admin'))
         {
             $user->update($request->except(['_token', 'role']));
@@ -126,7 +134,8 @@ class UserController extends Controller
                echo 'Input error: ', $e->getMessage();
             }
             
-        }        
+        }
+              
 
         $request->session()->flash('success', 'User updated');
         return redirect()->route('admin.users.index');

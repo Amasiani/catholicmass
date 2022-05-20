@@ -14,8 +14,10 @@ class ChurchController extends Controller
     
     public function __construct()
     {
-        $this->middleware(['auth.isAdmin', 'auth.isEditor']);
+        //$this->middleware('auth.isAdmin');
+        $this->middleware('auth.isEditor')->except('show');
     }
+    
     /**
      * Display a listing of the resource.
      *
@@ -79,9 +81,10 @@ class ChurchController extends Controller
             ]);
     
              $church->users()->sync($user);
-        }else {
-            Church::create($request->except(['_token']));
-        }
+        }else 
+            {
+                Church::create($request->except(['_token']));
+            }
         
         $request->session()->flash('Success', 'Church created');
         return redirect()->route('admin.churches.index');

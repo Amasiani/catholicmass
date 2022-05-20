@@ -11,7 +11,7 @@
             <div class="card-body">
                 <form method="post" action="{{ route('admin.societies.store') }}">
                     @csrf
-                    @include('admin.societies.partials.form')
+                    @include('admin.societies.partials.form', ['create' => true])
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </form>
             </div>

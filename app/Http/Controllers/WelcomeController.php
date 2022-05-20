@@ -12,29 +12,29 @@ class WelcomeController extends Controller
 
     public function index(Request $request)
     {
-        if(!$request->ajax()){
+        if (!$request->ajax()) {
             return view('welcome');
         }
 
-        $churches = Church::select(['id', 'name'])
-            ->when($request->lat and $request->long, function($query) use ($request) {
-                $query->addSelect(DB::raw("ST_DISTANCE_sphere(
-                    POINT('$request->lat', '$request->long'), POINT(latitude, longitude)
-                        as distance"))->orderBy('distance');
-            })->when($request->churchName, function ($query, $churchName) {
-                $query->where('churches.name', 'like', "%{$churchName}%");
-            })->take(10)->get();
+        $churches = Church::select(['id', 'name', 'website', 'address'])
+            ->when($request->latitude and $request->longitude, function ($query) use ($request) {
+                $query->addSelect(DB::raw("ST_Distance_Sphere(
+                    POINT('$request->longitude', '$request->latitude'), POINT(longitude, latitude)
+                    ) AS distance"))
+                    ->orderBy('distance');
+            })
+            ->when($request->name, function ($query, $name) {
+                $query->where('churches.name', 'LIKE', "%{$name}%");
+            })
+            ->take(12)->get();
 
-            return response()->json([
-                'churches' => $churches
-            ]);
+        return response()->json([
+            'churches' => $churches,
+        ]);
     }
-
 
     public function admin()
     {
         return view('/admin');
     }
 }
-
-

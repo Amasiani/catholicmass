@@ -19,6 +19,7 @@
                         <th scope="col">Longitude</th>
                         <th scope="col">Activities</th>
                         <th scope="col">Announcement</th>
+                        <th scope="col">Society</th>
                         <th scope="col">Website</th>
                         <th scope="col">Action</th>
                     </tr>
@@ -41,7 +42,18 @@
                                 @endforeach
                                 </ul>
                             </div>
-                        </td>            
+                        </td>
+                        <td><div class="dropdown">
+                            <a class="btn btn-info dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+                                Societies
+                            </a>
+                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                @foreach($church->societies as $society)
+                                    <li><a class="dropdown-item" href="{{ route('admin.societies.show', $society->id) }}">{{Str::limit($society->name, 10) }}</a></li>
+                                @endforeach
+                                </ul>
+                            </div>
+                        </td>               
                         <td><a href="{{ $church->website }}" target="_blank" style="text-decoration: none;">{{ Str::limit($church->website, 10) }}</a></td>                   
                         <div class="d-grid gap-2 d-md-block">
                         <td>

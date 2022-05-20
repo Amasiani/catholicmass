@@ -30,4 +30,9 @@ class Church extends Model
         return $this->hasMany(Announcement::class, 'church_id', 'id');
     }
 
+    public function societies()
+    {
+        return $this->hasMany(Society::class, 'church_id', 'id');
+    }
+
 }

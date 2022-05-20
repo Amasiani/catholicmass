@@ -17,12 +17,11 @@ class AccessEditor
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Gate::allows('is-editor')){
+        if(Gate::allows('is-editor')) {
             
             return $next($request);
         }
-
-        return redirect('/');
+        return redirect()->back();
         
     }
 }

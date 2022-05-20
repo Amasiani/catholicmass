@@ -34,7 +34,7 @@ class AuthServiceProvider extends ServiceProvider
         });
 
         Gate::define('is-editor', function($user){
-            return $user->hasAnyRole('editor');
+            return $user->hasAnyRoles(['editor', 'admin']);
         });
     }
 }

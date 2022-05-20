@@ -13,6 +13,7 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\WelcomeController;
 use App\Models\Adoration;
+use App\Models\Role;
 use Illuminate\Routing\RouteRegistrar;
 use Illuminate\Support\Facades\Route;
 
@@ -39,21 +40,24 @@ Route::get('/', function () {
 
 Route::get('/admin', [WelcomeController::class, 'admin'])->name('admin');
 Route::get('/home', [HomeController::class, 'redirect']);
+Route::get('/welcome', [WelcomeController::class, 'index']);
 Route::get('/child', [HomeController::class, 'LitcalApi']);
 Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');
 Route::get('/contact-us', [ContactFormController::class, 'Contactindex'])->name('contact');
 Route::post('/send-contact', [ContactFormController::class, 'sendContactMail'])->name('contact.send');
 
+Route::prefix('admin')->name('admin.')->group(function() {
+    Route::resource('churches', ChurchController::class);
+});
+
 Route::middleware(['auth', 'verified'])->prefix('admin')->name('admin.')->group(function() {
     Route::resources([
         'announcements'=> AnnouncementController::class,
         'adorations' => AdorationController::class,
-        'churches' => ChurchController::class,
+        
         'notifications' => NotificationController::class,
         'roles' => RoleController::class,
         'societies' => SocietyController::class,
         'users' => UserController::class,
     ]);
 });
-
-

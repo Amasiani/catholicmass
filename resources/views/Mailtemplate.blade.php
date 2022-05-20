@@ -90,26 +90,33 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6">
-              <div class="card">
+            <div class="col mb-2">
+            <div class="card">
                 <div class="card-body">
                   <h5 class="card-header">Place your Ads with us for wilder coverage</h5>
+                  @foreach($churches as $church)
                   <ul class="list-group list-group-flush">
-                    <li class="list-group-item">A first item</li>
-                    <li class="list-group-item">A second item</li>
-                    <li class="list-group-item">A third item</li>
+                    <li class="list-group-item d-flex justify-content-between align-items-start">
+                      <div class="ms-2 me-auto">
+                        <div class="fw-bold">{{ $church->name }}</div>
+                          {{ $church->address }}<br />
+                        <a href="{{ $church->website }}" class="btn btn-link" role="button" target="_blank">{{ $church->website  }}</a>
+                      </div>
+                    </li>
                   </ul>
+                  @endforeach
                 </div>
+                {{ $churches->links() }}
               </div>
             </div>
-            <div class="col-sm-6">
-              <div class="card">
+            <div class="col">
+              <div class="card text-center">
                 <div class="card-body">
                   <h5 class="card-header">Yearly Liturgical Calendar</h5>
                   <ul class="list-group">
-                    <li class="list-group-item"><iframe src="{{  url('/child') }}" frameborder="0"></iframe></li>
+                    <li class="list-group-item"><iframe src="{{  url('/child') }}" width="400" height="400" frameborder="1"></iframe></li>
                   </ul>
-                  <p class="card-text text-info"></p>
+                  <p class="card-text text-alert">Daily readings coming soon</p>
                 </div>
               </div>
             </div>

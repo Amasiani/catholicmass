@@ -68,29 +68,18 @@
         <!--/.bg-holder-->
 
         <div class="container">
-          <div class="row align-items-center min-vh-75 min-vh-md-100">
-            <div class="col-md-7 col-lg-6 py-6 text-sm-start text-center">
-              <p class="mb-4 fs-1">Find Catholic church near you</p>
-              <div class="pt-3">
-                <form>
-                  <div class="input-group w-xl-75 w-xxl-50 d-flex flex-end-center">
-                    <input class="form-control rounded-pill shadow-lg border-0" id="formGroupExampleInput" type="text" placeholder="Search for catholic church near your" /><img class="input-box-icon me-2" src="assets/img/illustrations/search.png" width="30" alt="" />
-                  </div>
-                </form>
-              </div>
-            </div>
-          </div>
+          <div id="example"></div>
         </div>
       </section>
 
       <!-- <section> begin ============================-->
-      <section class="py-8">
+      <section style="height: 120 !important;" class="py-4">
 
         <div class="container">
-          @include('partials.alerts')
-          @yield('content')
+         @include('partials.alerts')
+         @yield('content')
         </div>
-        <!-- end of .container-->
+        <!-- end of container-->
 
       </section>
       <!-- <section> close ============================-->
@@ -193,7 +182,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col mb-2">
               <div class="card">
                 <div class="card-body">
                   <h5 class="card-header">Place your Ads with us for wilder coverage</h5>
@@ -212,12 +201,12 @@
                 {{ $churches->links() }}
               </div>
             </div>
-            <div class="col-sm-6">
+            <div class="col">
               <div class="card text-center">
                 <div class="card-body">
                   <h5 class="card-header">Yearly Liturgical Calendar</h5>
                   <ul class="list-group">
-                    <li class="list-group-item"><iframe src="{{  url('/child') }}" width="400" height="400" frameborder="1"></iframe></li>
+                    <li class="list-group-item"><iframe src="{{  url('/child') }}" style="flex: 1; height:400px; width: 400px; align-content: flex-start" frameborder="1"></iframe></li>
                   </ul>
                   <p class="card-text text-alert">Daily readings coming soon</p>
                 </div>
@@ -266,6 +255,7 @@
     <script src="vendors/is/is.min.js"></script>
     <script src="https://polyfill.io/v3/polyfill.min.js?features=window.scroll"></script>
     <script src="assets/js/theme.js"></script>
+    <script src="{{ mix('/js/app.js') }}"></script>
 
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,200;1,300;1,400&amp;display=swap" rel="stylesheet">
   </body>

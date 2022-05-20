@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use App\Models\Church;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AnnouncementController extends Controller
 {
@@ -50,16 +52,31 @@ class AnnouncementController extends Controller
     public function store(Request $request)
     {
         //save announcement
-
-        //dd($request->church);
         //$announcement = Announcement::create($request->only(['title', 'description', 'church_id'=>2]));
         //$announcement->save($request->all());
         //$church->announcements()->save($announcement);
+         $request->validate([
+            'title' => 'required|string',
+            'description' => 'required|string',
+        ]);
+
+        dd($request);
         
         $church = Church::find($request->church);
-        $announcement = new Announcement($request->only(['title', 'description']));        
-        $announcement->church()->associate($church);
-        $announcement->save();
+        $user = Auth::user();
+        
+        if($user->usertype == 0 )
+        {
+            $announcement= Announcement::create($request->except(['_token'])); 
+            $announcement->church()->associate($church);                    
+            $church->users()->sync($user);
+        }else 
+            {
+                $announcement= Announcement::create($request->except(['_token']));
+                $announcement->church()->associate($church); 
+            }    
+            
+            $announcement->save();
 
         $request->session()->flash('success', 'Announcement created');
         return redirect()->back();

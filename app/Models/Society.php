@@ -10,5 +10,11 @@ class Society extends Model
     use HasFactory;
 
     protected $table = 'societies';
+    
     protected $fillable = ['name', 'program'];
+
+    public function church()
+    {
+        return $this->belongsTo(Church::class, 'church_id', 'id');
+    }
 }

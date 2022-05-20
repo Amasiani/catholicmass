@@ -36,5 +36,9 @@ class NotificationServiceProvider extends ServiceProvider
             $view->with('churches', Church::paginate(5));
         });
 
+        View::composer('Mailtemplate', function($view){
+            $view->with('churches', Church::paginate(5));
+        });
+
     }
 }

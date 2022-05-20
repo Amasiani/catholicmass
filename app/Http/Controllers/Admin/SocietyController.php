@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Church;
 use App\Models\Society;
 use Illuminate\Http\Request;
 
@@ -27,7 +28,7 @@ class SocietyController extends Controller
     public function create()
     {
         //create society
-        return view('admin.societies.create');
+        return view('admin.societies.create', ['churches' => Church::all()]);
     }
 
     /**
@@ -38,13 +39,16 @@ class SocietyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request->church);
         //dd($request);
         $request->validate([
             'name' => 'required|string',
             'program' => 'required|string|max:350',            
         ]);
-        Society::create($request->except('_token'));
+        $church = Church::find($request->church);
+        $society = new Society($request->only(['name', 'program']));
+        $society->church()->associate($church);
+        $society->save();
 
         $request->session()->flash('success', 'Society created');
         return redirect()->route('admin.societies.index');
