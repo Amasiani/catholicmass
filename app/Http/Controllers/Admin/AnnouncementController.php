@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Announcement;
 use App\Models\Church;
-use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -49,7 +48,7 @@ class AnnouncementController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Church $church)
     {
         //save announcement
         //$announcement = Announcement::create($request->only(['title', 'description', 'church_id'=>2]));
@@ -58,27 +57,27 @@ class AnnouncementController extends Controller
          $request->validate([
             'title' => 'required|string',
             'description' => 'required|string',
+            
         ]);
 
-        dd($request);
-        
-        $church = Church::find($request->church);
-        $user = Auth::user();
+        $user = Auth::user();      
         
         if($user->usertype == 0 )
         {
-            $announcement= Announcement::create($request->except(['_token'])); 
-            $announcement->church()->associate($church);                    
-            $church->users()->sync($user);
-        }else 
-            {
-                $announcement= Announcement::create($request->except(['_token']));
-                $announcement->church()->associate($church); 
-            }    
-            
+            $announcement = Announcement::create($request->except(['_token']));
             $announcement->save();
-
+            $announcement->church()->associate($request->church);                    
+        }
+        elseif ($user->usertype == 1 )
+        {
+            $announcement= Announcement::create($request->except(['_token']));
+            $announcement->save();
+            $announcement->church()->associate($church); 
+        }    
+            
+        
         $request->session()->flash('success', 'Announcement created');
+
         return redirect()->back();
     }
 
@@ -90,8 +89,8 @@ class AnnouncementController extends Controller
      */
     public function show($id)
     {
-        //
-        return view('admin.announcements.show', ['announcement'=>Announcement::find($id)]);
+        return view('admin.announcements.show', 
+        ['announcement' => Announcement::find($id)]);
     }
 
     /**
@@ -134,7 +133,8 @@ class AnnouncementController extends Controller
     {
         //delete
         Announcement::destroy($id);
-        return redirect()->route('admin.announcements.index')
-            ->with('success', 'Announcement deleted');
+        return redirect()->route('home')->with('success', 'Announcement deleted');
+       
+
     }
 }

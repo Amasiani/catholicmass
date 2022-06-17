@@ -14,7 +14,7 @@ class Announcement extends Model
     protected $fillable = [
         'title',
         'description',
-        'church',
+        'church_id',
     ];
 
     public function church() 

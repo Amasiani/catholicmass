@@ -37,4 +37,5 @@ class WelcomeController extends Controller
     {
         return view('/admin');
     }
+
 }

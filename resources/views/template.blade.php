@@ -66,10 +66,11 @@
         <div class="bg-holder d-sm-none" style="background-image:url(assets/img/illustrations/hero-bg.png);background-position:right top;background-size:contain;">
         </div>
         <!--/.bg-holder-->
-
+        <!--React component-->
         <div class="container">
           <div id="example"></div>
         </div>
+        <!--End of React component-->
       </section>
 
       <!-- <section> begin ============================-->

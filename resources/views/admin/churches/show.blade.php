@@ -1,4 +1,4 @@
-@extends('main')
+@extends('layout')
 
 @section('content')
 <section style="padding-top:5px;">
@@ -73,9 +73,9 @@
                                 </div>
                             </div>
                             @endforeach
-                                <li class="list-group-item"><strong>Website address:</strong><a href="{{ $church->website }}" target="_blank" style="text-decoration: none;">{{ $church->website  }}</a></li>
+                                <li class="list-group-item"><strong>Website address:  </strong><a href="{{ $church->website }}" target="_blank" style="text-decoration: none;">{{ $church->website  }}</a></li>
                                 @foreach( $church->users as $user)
-                                <li class="list-group-item"><strong>Church editor:</strong><a href="{{ route('admin.users.show', $user->id) }}" style="text-decoration:  none;"><strong>{{ $user->name  }}</strong></a></li>
+                                <li class="list-group-item"><strong>Church editor:  </strong><a href="{{ route('admin.users.show', $user->id) }}" style="text-decoration:  none;"><strong>{{ $user->name  }}</strong></a></li>
                             @endforeach
                         </ul>
                         <div class="card-body text-end">

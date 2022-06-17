@@ -7,7 +7,7 @@
         <div class="col-md-12">
             <div class="card">
                 <div class="card-header">
-                    <strong>{{ $announcement->title}}</strong>
+                <strong>{{ $announcement->title }}</strong>
                     <button class="btn btn-danger me-mb-2 ml-2 float-end"  type="button"
                         onclick="event.preventDefault();
                         document.getElementById('delete-announcement-form{{ $announcement->id }}').submit()">

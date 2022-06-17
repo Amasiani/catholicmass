@@ -39,7 +39,7 @@ Route::get('/', function () {
 });*/
 
 Route::get('/admin', [WelcomeController::class, 'admin'])->name('admin');
-Route::get('/home', [HomeController::class, 'redirect']);
+Route::get('/home', [HomeController::class, 'redirect'])->name('home');
 Route::get('/welcome', [WelcomeController::class, 'index']);
 Route::get('/child', [HomeController::class, 'LitcalApi']);
 Route::get('/privacy', [HomeController::class, 'privacy'])->name('privacy');

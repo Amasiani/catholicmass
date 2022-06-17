@@ -19,7 +19,6 @@
     @isset($create)
     <div class="mt-3">                                                                        
       <select name="church" id="church" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
-          <option value="">--Select church--</option>
           @foreach($churches as $church)                                        
               <option value="{{ $church->id }}" @if(old('church') == $church->id) selected @endif>{{ $church->name }}</option>                                   
           @endforeach

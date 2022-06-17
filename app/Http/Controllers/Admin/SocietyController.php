@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class SocietyController extends Controller
 {
+    
     /**
      * Display a listing of the resource.
      *
