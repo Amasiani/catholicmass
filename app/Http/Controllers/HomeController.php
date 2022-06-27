@@ -55,7 +55,7 @@ class HomeController extends Controller
     public function LitcalApi()
     {
         /**
-         * $url Set the API endpoint to a variablr
+         * $url Set the API endpoint to a variable
          * $getfield API endpoint setting
          * #getCurldata() helper function from Http\Helper\helper.php
          * @params string $url and array $getfieldaccepts   
@@ -76,7 +76,7 @@ class HomeController extends Controller
         /**
          * converting the JSON field to an associative array
          */
-        $data = json_decode($response, true); //Js::from($data) -- Larave alternative method
+        $data = json_decode($response, true); //Js::from($data) -- Laravel alternative method
         $litcaldata = $data['LitCal'];
 
         

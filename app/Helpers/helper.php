@@ -21,7 +21,7 @@
             $ch = curl_init();
 
             curl_setopt_array($ch, ($options + $defaults));
-             if( ! $result = curl_exec($ch))
+             if( !$result = curl_exec($ch))
                 {
                     trigger_error(curl_error($ch));
                 }
@@ -59,6 +59,7 @@ function curl_post($url, array $post = NULL, array $options = array())
         trigger_error(curl_error($ch));
     }
     curl_close($ch);
+
     return $result;
 }
 
