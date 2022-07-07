@@ -24,7 +24,7 @@ class ChurchController extends Controller
     public function index()
     {
         //list church
-        return response()->json(Church::chunk(20));
+        return response()->json(Church::all());
     }
 
     /**
@@ -35,7 +35,17 @@ class ChurchController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //create church
+        $request->validate([
+          'name' => 'required',
+          'address' => 'required',
+          'latitude' => 'required',
+          'longitude' => 'required',
+          'program' => 'required',
+          'website' => 'required',  
+        ]);
+
+        return Church::create($request->all());
     }
 
     /**
@@ -59,7 +69,11 @@ class ChurchController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //edit
+        $church = Church::find($id);
+        $church->update($request->all());
+
+        return response()->json($church);
     }
 
     /**
@@ -74,4 +88,17 @@ class ChurchController extends Controller
         Church::destroy($id);
         return redirect()->back();
     }
+
+    public function search ($name)
+
+    /**
+     * Return the specified resource from storage.
+     *
+     * @param string  $name
+     * @return \Illuminate\Http\Response
+     */
+    {
+        return Church::where('name', 'like', '%'.$name.'%')->get();
+    }
+
 }

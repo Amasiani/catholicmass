@@ -19,7 +19,7 @@
     @enderror
 </div>
 @isset($create)
-<div class="mb-3">                                                                        
+<div class="mb-3">                                                                       
     <select name="church_id" id="church_id" class="form-select form-select-lg mb-3" aria-label=".form-select-lg example">
         @foreach($churches as $church)                                        
             <option value="{{ $church->id }}" @if(old('church') == $church->id) selected @endif>{{ $church->name }}</option>                                   

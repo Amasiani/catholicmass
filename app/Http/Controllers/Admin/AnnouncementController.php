@@ -7,6 +7,7 @@ use App\Models\Announcement;
 use App\Models\Church;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use PHPUnit\Framework\Constraint\IsType;
 
 class AnnouncementController extends Controller
 {
@@ -36,8 +37,15 @@ class AnnouncementController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+       /** 
+        $value = $request->fullUrl();
+        $value1 = explode("/", $value);
+        $value2 = str_split($value1[5]);
+        $churchId = $value2[7];
+       */
+
         //create announcement
         return view('admin.announcements.create', ['churches' => Church::all()]);
     }
@@ -50,15 +58,16 @@ class AnnouncementController extends Controller
      */
     public function store(Request $request, Church $church)
     {
+        $value = $request->fullUrl();
+        dd($value);
         //save announcement
         //$announcement = Announcement::create($request->only(['title', 'description', 'church_id'=>2]));
         //$announcement->save($request->all());
         //$church->announcements()->save($announcement);
          $request->validate([
             'title' => 'required|string',
-            'description' => 'required|string',
-            
-        ]);
+            'description' => 'required|string',            
+            ]);
 
         $user = Auth::user();      
         

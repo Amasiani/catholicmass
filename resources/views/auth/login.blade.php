@@ -5,7 +5,7 @@
         <div class="card login-card">
             <div class="row no-gutters">
                 <div class="col-md-5">
-                    <img src="assets/img/auth/login.jpg" width="900" height="450" alt="login" class="img-fluid rounded login-card-img">
+                    <img src="assets/img/auth/login.jpg" width="900" height="450" alt="login" class="login-card-img image rounded">
                 </div>
                 <div class="col-md-7">
                     @if($errors->any())
@@ -19,9 +19,9 @@
                     </span>
                     @enderror
                     <div class="card-body">
-                        <div class="brand-wrapper">
+                        <!--<div class="brand-wrapper">
                             <img src="assets/img/auth/logo.png" alt="" class="logo">
-                        </div>
+                        </div>-->
                         <p class="login-card-description" class="text-mute">Sign into your account</p>
                         <form method="POST" action="{{ route('login') }}">
                             @csrf

@@ -1,7 +1,7 @@
-@extends('layout')
+@extends('template')
 
 @section('content')
-    <div class="container">
+<div class="container">
         <div class="col">
         <div class="card login-card">
             <div class="row no-gutters">
@@ -21,19 +21,12 @@
                     </span>
                     @enderror
                     <div class="card-body">
-                        <div class="brand-wrapper">
-                            <!--<a class="navbar-brand d-flex align-items-center fw-bolder fs-2 fst-italic" href="{{ url('/') }}">
-                                <img src="assets/img/gallery/logo.png" class="rounded-circle" alt="logo">
-                                <div class="col md-6 px-1">Catholic Clock</div>           
-                            </a>-->
-                        </div>
                         <p class="login-card-description text-light fw-bolder">Reset your password</p>
-                        <form method="POST" action="{{ route('password.update') }}">
+                        <form method="POST" action="{{ route('newLink.send') }}">
                             @csrf
-                            <input type="hidden" name="token" value="{{ $request->route('token') }}">
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
-                                <input type="email" name="email" id="email" class="form-control" value="{{ $request->email }}">
+                                <input type="email" name="email" id="email" class="form-control">
                                 @error('email')
                                 <span class="invalid-feedback is-invalid" role="alert">
                                         <strong>{{ $message }}</strong>
@@ -54,7 +47,6 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required autocomplete="new-password" placeholder="Confirm password">
                             </div>
                             <input name="reset" id="reset" class="btn btn-block text-white bg-dark fw-bolder login-btn mb-4" type="submit" value="Update">
-                            <a href="{{ route('newLink') }}" class="btn btn-primary" role="button">Request a new Reset Link</a>
                         </form>
                         <nav class="login-card-footer-nav">
                             <a href="#!">Terms of use.</a>

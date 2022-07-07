@@ -10,13 +10,13 @@
                               Contact Us
                         </div>
                             <div class="card-body">
-                                @if(Session::has('message_sent'))
-                                    <div class="alert-session" role="alert">
-                                        {{Session::get('message_sent')}}
-                                    </div>
-                                @endif
                                 <form method="POST" action="{{route('contact.send')}}" class="row g-3" enctype="multipart/form-data">
                                     @csrf
+                                    @if(Session::has('message_sent'))
+                                        <div class="alert-session" role="alert">
+                                            {{Session::get('message_sent')}}
+                                        </div>
+                                    @endif
                                     <div class="col-mb-8">
                                         <label for="name">Name:</label>
                                         <input type="text" name="name" class="form-control @error('name') is-invalided @enderror" />

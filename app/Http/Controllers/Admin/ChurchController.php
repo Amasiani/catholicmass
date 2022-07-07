@@ -57,6 +57,7 @@ class ChurchController extends Controller
      */
     public function store(Request $request)
     {
+        
         //save church       
         $request->validate([
             'name' => 'required|string',

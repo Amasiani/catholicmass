@@ -108,7 +108,7 @@ class UserController extends Controller
         $user = User::find($id);
         
         //Admin update user
-       /**
+       /*
         $user->update($request->except(['_token', 'role']));
         $user->roles()->sync($request->roles);
 
