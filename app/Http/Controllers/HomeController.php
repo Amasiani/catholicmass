@@ -29,7 +29,7 @@ class HomeController extends Controller
     public function redirect()
     {
         if(Auth::user())
-        {
+        {    
             if(Auth::user()->usertype == '0')
             {
                 return view('dashboard');
@@ -78,7 +78,20 @@ class HomeController extends Controller
          */
         $data = json_decode($response, true); //Js::from($data) -- Laravel alternative method
         $litcaldata = $data['LitCal'];
-
+        
+        /**
+         * Array filter test script
+         * 
+         * $result = [];
+         * $filtered = ["AllSaints", "AllSouls", "AshWednesday", "Ascension", "Christmas", "Easter", "PalmSun", "BaptismLord", "ChristKing", "CorpusChristi"];
+         * $feast = array_filter($data, function($key) {
+         * return $key == 'LitCal';}, ARRAY_FILTER_USE_KEY);
+         * $data1 = in_array($filtered, $feast);
+         * $finalData = array_push($result, $data1);
+         * 
+         * end of Array filter script
+         */
+    
         
         /**
          * Arr::dot() laravel function
@@ -86,6 +99,7 @@ class HomeController extends Controller
          * #dateUTC() convert timestamp to UTC Timezome
          */
         $dataArray = Arr::dot($litcaldata);
+
         //Chrismas Date
         $feastdate = intval($dataArray['Christmas.date']);
         $Christmasdate = dateUTC('d-m-Y', $feastdate);
@@ -135,7 +149,6 @@ class HomeController extends Controller
             'ascension' => $ascension,
             'pentecost' => $pentecost,
         ]);
-
 
     }
 
