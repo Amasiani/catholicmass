@@ -2,12 +2,11 @@
 
 @section('content')
     <div class="container">
-        <div class="card login-card">
-            <div class="row no-gutters">
-                <div class="col-md-5">
-                    <img src="assets/img/auth/login.jpg" width="900" height="650"  alt="login" class="login-card-img image rounded">
-                </div>
-                <div class="col-md-7">
+    <div class="container">
+        <div class="card login-card" max-width="780px">
+            <div class="col">
+                    <img src="assets/img/auth/login.jpg" width="900" height="650"  alt="login" class="card-img login-card-img image rounded">
+                <div class="card-img-overlay">
                     <div class="card-body">
                         <div class="brand-wrapper">
                             <img src="/img/logo.png" alt="" class="logo">
@@ -59,5 +58,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 @endsection
