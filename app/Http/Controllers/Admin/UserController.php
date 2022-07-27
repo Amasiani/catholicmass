@@ -126,13 +126,15 @@ class UserController extends Controller
         else
         {
             try{
-                $user->update($request->except(['_token', 'church', 'role']));
-                if(!$user->churches()->sync($request->churches && !$user->roles()->sync($request->roles))){
-                    throw New Exception("Incomplete inputs, likely 'Church' not selected");
+                    $user->update($request->except(['_token', 'church', 'role']));
+                    if(!$user->churches()->sync($request->churches) && !$user->roles()->sync($request->roles)){
+                        throw New Exception("Incomplete inputs, likely 'Church' or 'role' not selected");
                 }
-            }catch (Exception $e){
-               echo 'Input error: ', $e->getMessage();
-            }
+                }
+            catch (Exception $e)
+                {
+                    echo 'Input error: ', $e->getMessage();
+                }
             
         }
               

@@ -1,8 +1,9 @@
 <?php
 //namespace App\Http\Controllers;
 
-use App\Http\Controllers\Api\AuthController;
+use App\Http\Controllers\API\AuthController;
 use App\Http\Controllers\API\ChurchController;
+use App\Http\Controllers\API\UserController;
 use App\Models\Church;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -31,8 +32,10 @@ Route::name('api.')->group(function() {
 */
 
 Route::middleware('auth:sanctum')->name('api.')->group(function(){
-    Route::apiResources(
-        ['churches' => ChurchController::class]);
+    Route::apiResources([
+        'churches' => ChurchController::class,
+        'users' => UserController::class,
+    ]);
 });
 
 

@@ -15,7 +15,7 @@ class ChurchController extends Controller
     public function __construct()
     {
         //$this->middleware('auth.isAdmin');
-        $this->middleware('auth.isEditor')->except('show');
+        $this->middleware(['auth.isEditor', 'verified'])->except('show');
     }
     
     /**

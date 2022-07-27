@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class UserController extends Controller
@@ -14,7 +15,8 @@ class UserController extends Controller
      */
     public function index()
     {
-        //
+        //list user
+        return response()->json(User::all());
     }
 
     /**
@@ -36,7 +38,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        //show user
+        return response()->json(User::find($id), 200);
     }
 
     /**
@@ -48,7 +51,13 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        //edit user
+        $user = User::find($id);
+        $user->update($request->except('_token', 'role', 'church'));
+        $user->churches()->sync($request->churches);
+        $user->roles()->sync($request->roles);
+    
+        return response()->json('User updated');
     }
 
     /**
@@ -59,6 +68,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        //delete
+        User::destroy($id);
+        return response()->json('user deleted');
     }
 }
