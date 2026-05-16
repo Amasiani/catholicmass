@@ -1,81 +1,139 @@
 <?php
 
-    /**
-    * Send a GET requst using cURL
-    * @param string $url to request
-    * @param array $get values to send
-    * @param array $options for cURL
-    * @return string
-    */
-    
-    function getCurldata($url, array $get = null,  array $options = array())
-        {       
-
-            $defaults = array(
-                CURLOPT_URL => $url . (strpos($url, '?') === FALSE ? '?' : ''). http_build_query($get),
-                CURLOPT_HEADER => 0,
-                CURLOPT_RETURNTRANSFER => TRUE,
-                CURLOPT_TIMEOUT => 4
-            );
-   
-            $ch = curl_init();
-
-            curl_setopt_array($ch, ($options + $defaults));
-             if( !$result = curl_exec($ch))
-                {
-                    trigger_error(curl_error($ch));
-                }
-                curl_close($ch);
-
-                return $result;
-
-        }
-
-
 /**
-* Send a POST requst using cURL
-* @param string $url to request
-* @param array $post values to send
-* @param array $options for cURL
-* @return string
-*/
-function curl_post($url, array $post = NULL, array $options = array())
+ * Execute a cURL GET request.
+ *
+ * @param string     $url
+ * @param array|null $queryParams Query string parameters
+ * @param array      $options     Additional cURL options
+ *
+ * @return string
+ *
+ * @throws RuntimeException
+ */
+function getCurlData(string $url, ?array $queryParams = null, array $options = []): string
 {
-    $defaults = array(
-        CURLOPT_POST => 1,
-        CURLOPT_HEADER => 0,
-        CURLOPT_URL => $url,
-        CURLOPT_FRESH_CONNECT => 1,
-        CURLOPT_RETURNTRANSFER => 1,
-        CURLOPT_FORBID_REUSE => 1,
-        CURLOPT_TIMEOUT => 4,
-        CURLOPT_POSTFIELDS => http_build_query($post)
-    );
+    // Build final URL with query parameters
+    if (!empty($queryParams)) {
+        $separator = str_contains($url, '?') ? '&' : '?';
+        $url .= $separator . http_build_query($queryParams);
+    }
+
+    $defaultOptions = [
+        CURLOPT_URL            => $url,
+        CURLOPT_HEADER         => false,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT        => 10,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
+    ];
 
     $ch = curl_init();
-    curl_setopt_array($ch, ($options + $defaults));
-    if( ! $result = curl_exec($ch))
-    {
-        trigger_error(curl_error($ch));
-    }
-    curl_close($ch);
 
-    return $result;
+    curl_setopt_array($ch, $options + $defaultOptions);
+
+    $response = curl_exec($ch);
+
+    if ($response === false) {
+        $error = curl_error($ch);
+        $errno = curl_errno($ch);
+
+        if (PHP_VERSION_ID < 80500) {
+            curl_close($ch);
+        }
+
+        throw new RuntimeException("cURL Error ({$errno}): {$error}");
+    }
+
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if (PHP_VERSION_ID < 80500) {
+        curl_close($ch);
+    }
+
+    if ($httpCode >= 400) {
+        throw new RuntimeException("HTTP request failed with status code {$httpCode}");
+    }
+
+    return $response;
+}
+
+/**
+ * Send a POST request using cURL.
+ *
+ * @param string     $url         Target URL
+ * @param array|null $postData    Data to send in the request body
+ * @param array      $options     Additional cURL options
+ *
+ * @return string
+ *
+ * @throws RuntimeException
+ */
+function curlPost(string $url, ?array $postData = null, array $options = []): string
+{
+    $defaultOptions = [
+        CURLOPT_URL            => $url,
+        CURLOPT_POST           => true,
+        CURLOPT_POSTFIELDS     => !empty($postData)
+            ? http_build_query($postData)
+            : '',
+        CURLOPT_HEADER         => false,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_FOLLOWLOCATION => true,
+        CURLOPT_FRESH_CONNECT  => true,
+        CURLOPT_FORBID_REUSE   => true,
+        CURLOPT_CONNECTTIMEOUT => 5,
+        CURLOPT_TIMEOUT        => 10,
+        CURLOPT_SSL_VERIFYPEER => true,
+        CURLOPT_SSL_VERIFYHOST => 2,
+    ];
+
+    $ch = curl_init();
+
+    curl_setopt_array($ch, $options + $defaultOptions);
+
+    $response = curl_exec($ch);
+
+    if ($response === false) {
+        throw new RuntimeException(
+            sprintf(
+                'cURL Error (%d): %s',
+                curl_errno($ch),
+                curl_error($ch)
+            )
+        );
+    }
+
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+
+    if ($httpCode >= 400) {
+        throw new RuntimeException(
+            "HTTP request failed with status code {$httpCode}"
+        );
+    }
+
+    return $response;
 }
 
 
-function dateUTC($format, $timestamp)
+/**
+ * Format a timestamp in UTC timezone.
+ *
+ * @param string $format
+ * @param int    $timestamp
+ *
+ * @return string
+ *
+ * @throws Exception
+ */
+function dateUtc(string $format, int $timestamp): string
 {
-    //if ($timestamp === null) $timestamp = time();
+    $dateTime = new DateTime("@{$timestamp}");
+    $dateTime->setTimezone(new DateTimeZone('UTC'));
 
-    //$tz = new DateTimeZone('UTC'); //date_default_timezone_get();
-    
-
-    $result = date($format, $timestamp);
-    date_default_timezone_set('UTC');
-    //date_default_timezone_set($tz);
-    return $result;
-
+    return $dateTime->format($format);
 }
 
 
