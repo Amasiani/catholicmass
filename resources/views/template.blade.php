@@ -207,6 +207,7 @@
                 <div class="card-body">
                   <h5 class="card-header">Yearly Liturgical Calendar</h5>
                   <ul class="list-group">
+                      <!-- iframed child blade from the litugical calendar api -->
                     <li class="list-group-item">
                         <iframe src="{{  url('/child') }}" style="flex: 1; height:400px; width: 400px; align-content: flex-start" frameborder="1"></iframe>
                     </li>
